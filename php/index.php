@@ -22,7 +22,7 @@
         <h2>Never Stop</h2>
         <h3>Discovering your style</h3>
 
-        <a href="#">Explore</a>
+        <a href="home.php">Explore</a>
     </div>
     
     </section>
