@@ -18,7 +18,7 @@
   <div class="container d-flex flex-wrap justify-content-between align-items-center">
 
     <!-- Brand/logo -->
-    <a href="/" class="d-flex align-items-center mb-3 mb-lg-0 link-body-emphasis text-decoration-none">
+    <a href="../php/index.php" class="d-flex align-items-center mb-3 mb-lg-0 link-body-emphasis text-decoration-none">
       <span class="fs-4">VELVET VOGUE</span>
     </a>
     
@@ -72,11 +72,11 @@
       <div class="col-lg-4 d-flex justify-content-center">
         <nav>
           <ul class="nav">
-            <!-- <li class="nav-item"><a href="#" class="nav-link link-body-emphasis px-2 active" aria-current="page">Home</a></li> -->
-            <li class="nav-item"><a href="#" class="nav-link link-body-emphasis px-2">T-SHIRTS</a></li>
-            <li class="nav-item"><a href="#" class="nav-link link-body-emphasis px-2">PANTS</a></li>
-            <li class="nav-item"><a href="#" class="nav-link link-body-emphasis px-2">SHORTS</a></li>
-            <li class="nav-item"><a href="#" class="nav-link link-body-emphasis px-2">HOODIES</a></li>
+            <li class="nav-item"><a href="../php/home.php" class="nav-link link-body-emphasis px-2 active" aria-current="page">HOME</a></li>
+            <li class="nav-item"><a href="../php/tshirt.php" class="nav-link link-body-emphasis px-2">T-SHIRTS</a></li>
+            <li class="nav-item"><a href="../php/pants.php" class="nav-link link-body-emphasis px-2">PANTS</a></li>
+            <li class="nav-item"><a href="../php/shorts.php" class="nav-link link-body-emphasis px-2">SHORTS</a></li>
+            <li class="nav-item"><a href="../php/hoodies.php" class="nav-link link-body-emphasis px-2">HOODIES</a></li>
           </ul>
         </nav>
       </div>
