@@ -9,3 +9,20 @@
 body {
   font-family: 'Poppins', sans-serif; /* Set Poppins font for the body */
 }
+
+/* Style for active link */
+.nav-pills .nav-link.active {
+  background-color: #FFC107; /* Background color for active link */
+  color: white; /* Text color for active link */
+  border-radius: 4px; /* Optional: adds rounded corners */
+}
+
+/* Style for non-active links */
+.nav-pills .nav-link {
+  color: #333333; /* Text color for non-active links */
+}
+
+/* Hover effect for non-active links */
+.nav-pills .nav-link:hover {
+  color: #FFC107; /* Text color on hover for non-active links */
+}

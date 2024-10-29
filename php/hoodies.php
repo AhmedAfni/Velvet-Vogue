@@ -41,7 +41,7 @@
     <header class="d-flex justify-content-center py-3">
       <ul class="nav nav-pills">
         <li class="nav-item"><a href="../php/home.php" class="nav-link">HOME</a></li>
-        <li class="nav-item"><a href="../php/tshirt.php" class="nav-link" >T-SHIRTS</a></li>
+        <li class="nav-item"><a href="../php/tshirt.php" class="nav-link">T-SHIRTS</a></li>
         <li class="nav-item"><a href="../php/pants.php" class="nav-link">PANTS</a></li>
         <li class="nav-item"><a href="../php/shorts.php" class="nav-link">SHORTS</a></li>
         <li class="nav-item"><a href="../php/hoodies.php" class="nav-link active"aria-current="page">HOODIES</a></li>
