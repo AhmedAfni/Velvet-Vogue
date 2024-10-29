@@ -6,13 +6,3 @@
   box-sizing: border-box;
   font-family: 'Poppins', sans-serif;
 }
-
-.nav-link {
-  color: black; 
-  text-decoration: none; 
-}
-
-.nav-link:hover {
-  text-decoration: underline; 
-  color: black; 
-}
