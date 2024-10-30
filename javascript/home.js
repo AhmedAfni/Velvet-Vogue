@@ -3,3 +3,7 @@ var myCarousel = document.querySelector('#carouselExampleIndicators');
         interval: 500, 
         ride: 'carousel' 
     });
+
+    // function openSignup() {
+    //     window.open('../php/signup.php', 'Signup', 'width = 600, height = 600, scrollbars=yes');
+    // }
