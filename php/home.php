@@ -30,9 +30,15 @@
         </form>
 
         <div class="text-end">
-        <a href="../php/profile.php" class="btn btn-warning me-2">
-            <img src="../assets/profile.png" alt="Company Logo" style="height: 20px; margin-right: 5px;"> Account
+
+        <a href="../php/signup.php" class="btn btn-warning me-2">
+            Account
         </a> 
+
+        <a href="../php/profile.php" class="text-warning me-2" style="text-decoration: none; margin-left: 10px;">
+            <img src="../assets/profile.png" alt="Company Logo" style="height: 30px; margin-right: 5px;">
+        </a>
+        
         </div>
       </div>
     </div>
@@ -64,7 +70,7 @@
         <img src="../assets/slider1.svg" class="d-block mx-auto" alt="First slide">
     </div>
     <div class="carousel-item">
-        <img src="../assets/slider1.svg" class="d-block mx-auto" alt="Second slide">
+        <img src="../assets/slider2.svg" class="d-block mx-auto" alt="Second slide">
     </div>
     <div class="carousel-item">
         <img src="../assets/slider1.svg" class="d-block mx-auto" alt="Third slide">

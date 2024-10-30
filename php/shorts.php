@@ -14,8 +14,9 @@
 
 <header class="p-3 bg-dark text-white">
     <div class="container">
-      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+    <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
         
+
         <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
           <li class="nav-item">
             <a href="../php/index.php" class="nav-link px-2 text-white fs-4">VELVET VOGUE</a>
@@ -27,9 +28,16 @@
         </form>
 
         <div class="text-end">
-        <button type="button" class="btn btn-warning">Account</button> 
+
+        <a href="../php/signup.php" class="btn btn-warning me-2">
+            Account
+        </a> 
+
+        <a href="../php/profile.php" class="text-warning me-2" style="text-decoration: none; margin-left: 10px;">
+            <img src="../assets/profile.png" alt="Company Logo" style="height: 30px; margin-right: 5px;">
+        </a>
+        
         </div>
-      </div>
     </div>
   </header>
 
