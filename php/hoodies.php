@@ -51,5 +51,69 @@
 
   <!-- Add your T-shirt specific content here -->
 
+  <div class="container">
+  <footer class="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-5 my-5 border-top">
+    <div class="col mb-3">
+      <a href="/" class="d-flex align-items-center mb-3 link-body-emphasis text-decoration-none">
+        <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
+      </a>
+      <p class="text-body-secondary fw-bold fs-4" style="white-space: nowrap;">Velvet Vogue Clothing Company</p>
+      <p class="text-body-secondary">Elevate your style with Velvet Vogue—where versatile men's fashion meets effortless confidence. Dress sharp, play hard!</p>
+    </div>
+
+    <div class="col mb-3">
+
+    </div>
+
+    <div class="col mb-3">
+      <h5>SHOP</h5>
+      <ul class="nav flex-column">
+        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">T-Shirts</a></li>
+        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Pants</a></li>
+        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Shorts</a></li>
+        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Hoodies</a></li>
+      </ul>
+    </div>
+
+    <div class="col mb-3">
+      <h5>HELP</h5>
+      <ul class="nav flex-column">
+        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Get Help</a></li>
+        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Terms & Conditions</a></li>
+        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Privacy Policy</a></li>
+        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Return & Exchange</a></li>
+        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Delivery Policy</a></li>
+        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Order Tracking</a></li>
+      </ul>
+    </div>
+
+    <div class="col mb-3">
+      <h5>ABOUT</h5>
+      <ul class="nav flex-column">
+        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Journal</a></li>
+        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Our Story</a></li>
+        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Contact</a></li>
+      </ul>
+    </div>
+  </footer>
+</div>
+
+<div class="container">
+  <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+  <div class="col-md-4 d-flex align-items-center">
+    <a href="/" class="mb-3 me-2 mb-md-0 text-body-secondary text-decoration-none lh-1">
+        <img src="../assets/brand.png" alt="Company Logo" width="30" height="24">
+    </a>
+    <span class="mb-3 mb-md-0 text-body-secondary" style="white-space: nowrap;">© 2024 Velvet Vogue Clothing Company. All rights reserved.</span>
+  </div>
+
+  <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+    <li class="ms-3"><a class="text-body-secondary" href="#"><img src="../assets/visa.png" alt="Twitter" width="32" height="32"></a></li>
+    <li class="ms-3"><a class="text-body-secondary" href="#"><img src="../assets/card.png" alt="Instagram" width="32" height="32"></a></li>
+    <li class="ms-3"><a class="text-body-secondary" href="#"><img src="../assets/american-express.png" alt="Facebook" width="32" height="32"></a></li>
+  </ul>
+  </footer>
+</div>
+
 </body>
 </html>

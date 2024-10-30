@@ -26,3 +26,10 @@ body {
 .nav-pills .nav-link:hover {
   color: #FFC107; /* Text color on hover for non-active links */
 }
+
+.carousle-item img{
+  max-height: 400px;
+  width: 100%;
+  object-fit: cover;
+}
+
