@@ -31,13 +31,13 @@
 
         <div class="text-end">
 
-        <a href="../php/signup.php" class="btn btn-warning me-2">
-            Account
-        </a> 
+            <button type="button" class="btn btn-warning me-2" data-bs-toggle="modal" data-bs-target="#loginModal">
+                Account
+            </button> 
 
-        <a href="../php/profile.php" class="text-warning me-2" style="text-decoration: none; margin-left: 10px;">
-            <img src="../assets/profile.png" alt="Company Logo" style="height: 30px; margin-right: 5px;">
-        </a>
+            <a href="../php/profile.php" class="text-warning me-2" style="text-decoration: none; margin-left: 10px;">
+                <img src="../assets/profile.png" alt="Company Logo" style="height: 30px; margin-right: 5px;">
+            </a>
         
         </div>
       </div>
@@ -151,6 +151,86 @@
     <li class="ms-3"><a class="text-body-secondary" href="#"><img src="../assets/american-express.png" alt="americanexpress" width="32" height="32"></a></li>
 </ul>
   </footer>
+</div>
+
+<!-- Modal for Login/Signup -->
+<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="loginModalLabel">Login</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <h1>VELVET VOGUE</h1>
+        <form>
+          <div class="mb-3">
+            <label for="username" class="form-label">Username</label>
+            <input type="text" class="form-control" id="username" placeholder="Enter your username">
+          </div>
+          <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" class="form-control" id="password" placeholder="Enter your password">
+          </div>
+          <button type="submit" class="btn btn-primary">Login</button>
+        </form>
+      </div>
+      <div class="modal-footer d-flex justify-content-center align-items-center" style="background-color: #f8f9fa; padding: 15px;">
+        <p class="mb-0 me-3" style="font-size: 1.1rem; font-weight: 500;">Don't have an account? 
+          <a href="#" data-bs-toggle="modal" data-bs-target="#signupModal" style="color: #ffcc00;">Sign up here</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="signupModal" tabindex="-1" aria-labelledby="signupModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="signupModalLabel">Sign Up</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <h1>VELVET VOGUE</h1>
+        <form action="../php/signup.php" method="POST"> <!-- Action to signup.php -->
+          <div class="mb-3">
+            <label for="signupEmail" class="form-label">Email address</label>
+            <input type="email" class="form-control" id="signupEmail" required placeholder="Enter your email">
+          </div>
+          <div class="mb-3">
+            <label for="signupPassword" class="form-label">Password</label>
+            <input type="password" class="form-control" id="signupPassword" required placeholder="Create a password">
+          </div>
+          <div class="mb-3">
+            <label for="confirmPassword" class="form-label">Confirm Password</label>
+            <input type="password" class="form-control" id="confirmPassword" required placeholder="Confirm your password">
+          </div>
+          <button type="submit" class="btn btn-primary">Sign Up</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </form>
+
+        <div class="social-buttons mt-3">
+          <p>or Sign up with:</p>
+          <div class="social-icons"> 
+            <button type="button" class="btn btn-link">
+                <img src="../assets/facebook.png" alt="Facebook" style="width: 20px; height: 20px;">
+            </button>
+            <button type="button" class="btn btn-link">
+                <img src="../assets/google.png" alt="Google" style="width: 20px; height: 20px;">
+            </button>
+            <button type="button" class="btn btn-link">
+                <img src="../assets/twitter.png" alt="Twitter" style="width: 20px; height: 20px;">
+            </button>
+          </div>
+          <p class="text-center">Already have an account? <a href="#" data-bs-toggle="modal" data-bs-target="#loginModal" style="color: #ffcc00;">Log in</a></p>
+        </div>
+      </div>
+      <div class="modal-footer d-flex justify-content-center align-items-center" style="background-color: #f8f9fa; padding: 15px;">
+        <p class="mb-0 me-3" style="font-size: 1.1rem; font-weight: 500;">By signing up, you agree to our <a href="#" style="color: #ffcc00; text-decoration: underline;">Terms of Service</a>.</p>
+      </div>
+    </div>
+  </div>
 </div>
 
 </body>
