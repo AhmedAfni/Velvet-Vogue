@@ -172,8 +172,24 @@
             <label for="password" class="form-label">Password</label>
             <input type="password" class="form-control" id="password" placeholder="Enter your password">
           </div>
-          <button type="submit" class="btn btn-primary">Login</button>
+          <button type="submit" class="btn btn-warning w-100">Login</button>
         </form>
+
+        <!-- New section for social login -->
+        <div class="mt-3 text-center">
+          <p>or login with:</p>
+          <div class="social-icons"> 
+            <button type="button" class="btn btn-link">
+                <img src="../assets/facebook.png" alt="Facebook" style="width: 20px; height: 20px;">
+            </button>
+            <button type="button" class="btn btn-link">
+                <img src="../assets/google.png" alt="Google" style="width: 20px; height: 20px;">
+            </button>
+            <button type="button" class="btn btn-link">
+                <img src="../assets/twitter.png" alt="Twitter" style="width: 20px; height: 20px;">
+            </button>
+          </div>
+        </div>
       </div>
       <div class="modal-footer d-flex justify-content-center align-items-center" style="background-color: #f8f9fa; padding: 15px;">
         <p class="mb-0 me-3" style="font-size: 1.1rem; font-weight: 500;">Don't have an account? 
@@ -195,6 +211,18 @@
         <h1>VELVET VOGUE</h1>
         <form action="../php/signup.php" method="POST"> <!-- Action to signup.php -->
           <div class="mb-3">
+            <label for="signupFullName" class="form-label">Full name</label>
+            <input type="text" class="form-control" id="signupFullName" required placeholder="Enter your full name">
+          </div>
+          <div class="mb-3">
+            <label for="signupHomeAddress" class="form-label">Home address</label>
+            <input type="text" class="form-control" id="signupHomeAddress" required placeholder="Enter your home address">
+          </div>
+          <div class="mb-3">
+            <label for="signupPostalCode" class="form-label">Postal code</label>
+            <input type="text" class="form-control" id="signupPostalCode" required placeholder="Enter your postal code">
+          </div>
+          <div class="mb-3">
             <label for="signupEmail" class="form-label">Email address</label>
             <input type="email" class="form-control" id="signupEmail" required placeholder="Enter your email">
           </div>
@@ -206,13 +234,12 @@
             <label for="confirmPassword" class="form-label">Confirm Password</label>
             <input type="password" class="form-control" id="confirmPassword" required placeholder="Confirm your password">
           </div>
-          <button type="submit" class="btn btn-primary">Sign Up</button>
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-warning w-100">Sign Up</button> <!-- Changed to btn-warning and w-100 -->
         </form>
 
-        <div class="social-buttons mt-3">
+        <div class="social-buttons mt-3 text-center">
           <p>or Sign up with:</p>
-          <div class="social-icons"> 
+          <div class="social-icons d-flex justify-content-center"> 
             <button type="button" class="btn btn-link">
                 <img src="../assets/facebook.png" alt="Facebook" style="width: 20px; height: 20px;">
             </button>
@@ -223,11 +250,12 @@
                 <img src="../assets/twitter.png" alt="Twitter" style="width: 20px; height: 20px;">
             </button>
           </div>
-          <p class="text-center">Already have an account? <a href="#" data-bs-toggle="modal" data-bs-target="#loginModal" style="color: #ffcc00;">Log in</a></p>
         </div>
       </div>
       <div class="modal-footer d-flex justify-content-center align-items-center" style="background-color: #f8f9fa; padding: 15px;">
-        <p class="mb-0 me-3" style="font-size: 1.1rem; font-weight: 500;">By signing up, you agree to our <a href="#" style="color: #ffcc00; text-decoration: underline;">Terms of Service</a>.</p>
+        <p class="mb-0 me-3" style="font-size: 1.1rem; font-weight: 500;">Already have an account? 
+          <a href="#" data-bs-toggle="modal" data-bs-target="#loginModal" style="color: #ffcc00;">Log in</a>
+        </p>
       </div>
     </div>
   </div>
