@@ -3,61 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pants</title>
+    <title>T-Shirts</title>
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
-    <link rel="stylesheet" href="../css/pants.css">
+    <link rel="stylesheet" href="css/tshirt.css">
 
-    <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
 </head>
 <body>
 
 <header class="p-3 bg-dark text-white">
     <div class="container">
-    <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-        
+        <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+            <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                <li class="nav-item">
+                    <a href="index.php" class="nav-link px-2 text-white fs-4">VELVET VOGUE</a>
+                </li>
+            </ul>
 
-        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-          <li class="nav-item">
-            <a href="../php/index.php" class="nav-link px-2 text-white fs-4">VELVET VOGUE</a>
-          </li>
-        </ul>
+            <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
+                <input type="search" class="form-control form-control-dark" placeholder="Search..." aria-label="Search">
+            </form>
 
-        <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
-          <input type="search" class="form-control form-control-dark" placeholder="Search..." aria-label="Search">
-        </form>
+            <div class="text-end">
+                <button type="button" class="btn btn-warning me-2" data-bs-toggle="modal" data-bs-target="#loginModal">
+                    Account
+                </button> 
 
-        <div class="text-end">
-
-        <button type="button" class="btn btn-warning me-2" data-bs-toggle="modal" data-bs-target="#loginModal">
-            Account
-        </button> 
-
-        <a href="../php/profile.php" class="text-warning me-2" style="text-decoration: none; margin-left: 10px;">
-            <img src="../assets/profile.png" alt="Company Logo" style="height: 30px; margin-right: 5px;">
-        </a>
-        
+                <a href="profile.php" class="text-warning me-2" style="text-decoration: none; margin-left: 10px;">
+                    <img src="assets/profile.png" alt="Company Logo" style="height: 30px; margin-right: 5px;">
+                </a>
+            </div>
         </div>
     </div>
-  </header>
+</header>
 
-  <div class="container">
+<div class="container">
     <header class="d-flex justify-content-center py-3">
-      <ul class="nav nav-pills">
-        <li class="nav-item"><a href="../php/home.php" class="nav-link">HOME</a></li>
-        <li class="nav-item"><a href="../php/tshirt.php" class="nav-link" >T-SHIRTS</a></li>
-        <li class="nav-item"><a href="../php/pants.php" class="nav-link active aria-current="page">PANTS</a></li>
-        <li class="nav-item"><a href="../php/shorts.php" class="nav-link">SHORTS</a></li>
-        <li class="nav-item"><a href="../php/hoodies.php" class="nav-link">HOODIES</a></li>
-      </ul>
+        <ul class="nav nav-pills">
+            <li class="nav-item"><a href="home.php" class="nav-link">HOME</a></li>
+            <li class="nav-item"><a href="tshirt.php" class="nav-link active" aria-current="page">T-SHIRTS</a></li>
+            <li class="nav-item"><a href="pants.php" class="nav-link">PANTS</a></li>
+            <li class="nav-item"><a href="shorts.php" class="nav-link">SHORTS</a></li>
+            <li class="nav-item"><a href="hoodies.php" class="nav-link">HOODIES</a></li>
+        </ul>
     </header>
-  </div>
+</div>
 
-  <!-- Add your Pants specific content here --> 
+<!-- Add your T-shirt specific content here --> 
 
-  <div class="container">
+<div class="container">
     <footer class="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-5 my-5 border-top">
         <div class="col mb-3">
             <p class="text-body-secondary fw-bold fs-4" style="white-space: nowrap;">Velvet Vogue Clothing Company</p>
@@ -97,27 +94,27 @@
             </ul>
         </div>
     </footer>
-  </div>
+</div>
 
-  <div class="container">
+<div class="container">
     <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
-    <div class="col-md-4 d-flex align-items-center">
-        <a href="/" class="mb-3 me-2 mb-md-0 text-body-secondary text-decoration-none lh-1">
-            <img src="../assets/brand.png" alt="Company Logo" width="30" height="24">
-        </a>
-        <span class="mb-3 mb-md-0 text-body-secondary" style="white-space: nowrap;">© 2024 Velvet Vogue Clothing Company. All rights reserved.</span>
-    </div>
+        <div class="col-md-4 d-flex align-items-center">
+            <a href="/" class="mb-3 me-2 mb-md-0 text-body-secondary text-decoration-none lh-1">
+                <img src="assets/brand.png" alt="Company Logo" width="30" height="24">
+            </a>
+            <span class="mb-3 mb-md-0 text-body-secondary" style="white-space: nowrap;">© 2024 Velvet Vogue Clothing Company. All rights reserved.</span>
+        </div>
 
-    <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
-        <li class="ms-3"><a class="text-body-secondary" href="#"><img src="../assets/visa.png" alt="visa" width="32" height="32"></a></li>
-        <li class="ms-3"><a class="text-body-secondary" href="#"><img src="../assets/card.png" alt="mastercard" width="32" height="32"></a></li>
-        <li class="ms-3"><a class="text-body-secondary" href="#"><img src="../assets/american-express.png" alt="americanexpress" width="32" height="32"></a></li>
-    </ul>
+        <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+            <li class="ms-3"><a class="text-body-secondary" href="#"><img src="assets/visa.png" alt="visa" width="32" height="32"></a></li>
+            <li class="ms-3"><a class="text-body-secondary" href="#"><img src="assets/card.png" alt="mastercard" width="32" height="32"></a></li>
+            <li class="ms-3"><a class="text-body-secondary" href="#"><img src="assets/american-express.png" alt="americanexpress" width="32" height="32"></a></li>
+        </ul>
     </footer>
-  </div>
+</div>
 
-  <!-- Modal for Login/Signup -->
-  <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+<!-- Modal for Login/Signup -->
+<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -143,13 +140,13 @@
                     <p>or login with:</p>
                     <div class="social-icons"> 
                         <button type="button" class="btn btn-link">
-                            <img src="../assets/facebook.png" alt="Facebook" style="width: 20px; height: 20px;">
+                            <img src="assets/facebook.png" alt="Facebook" style="width: 20px; height: 20px;">
                         </button>
                         <button type="button" class="btn btn-link">
-                            <img src="../assets/google.png" alt="Google" style="width: 20px; height: 20px;">
+                            <img src="assets/google.png" alt="Google" style="width: 20px; height: 20px;">
                         </button>
                         <button type="button" class="btn btn-link">
-                            <img src="../assets/twitter.png" alt="Twitter" style="width: 20px; height: 20px;">
+                            <img src="assets/twitter.png" alt="Twitter" style="width: 20px; height: 20px;">
                         </button>
                     </div>
                 </div>
@@ -161,9 +158,9 @@
             </div>
         </div>
     </div>
-  </div>
+</div>
 
-  <div class="modal fade" id="signupModal" tabindex="-1" aria-labelledby="signupModalLabel" aria-hidden="true">
+<div class="modal fade" id="signupModal" tabindex="-1" aria-labelledby="signupModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -204,13 +201,13 @@
                     <p>or Sign up with:</p>
                     <div class="social-icons d-flex justify-content-center"> 
                         <button type="button" class="btn btn-link">
-                            <img src="../assets/facebook.png" alt="Facebook" style="width: 20px; height: 20px;">
+                            <img src="assets/facebook.png" alt="Facebook" style="width: 20px; height: 20px;">
                         </button>
                         <button type="button" class="btn btn-link">
-                            <img src="../assets/google.png" alt="Google" style="width: 20px; height: 20px;">
+                            <img src="assets/google.png" alt="Google" style="width: 20px; height: 20px;">
                         </button>
                         <button type="button" class="btn btn-link">
-                            <img src="../assets/twitter.png" alt="Twitter" style="width: 20px; height: 20px;">
+                            <img src="assets/twitter.png" alt="Twitter" style="width: 20px; height: 20px;">
                         </button>
                     </div>
                 </div>
@@ -222,7 +219,7 @@
             </div>
         </div>
     </div>
-  </div>
+</div>
 
 </body>
 </html>

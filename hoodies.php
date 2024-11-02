@@ -8,11 +8,11 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
-    <link rel="stylesheet" href="../css/hoodies.css">
+    <link rel="stylesheet" href="css/hoodies.css">
 
-    <script src="../javascript/hoodie.js"></script>
+    <script src="javascript/hoodie.js"></script>
 
-    <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
 </head>
 <body>
 
@@ -23,7 +23,7 @@
 
         <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
           <li class="nav-item">
-            <a href="../php/index.php" class="nav-link px-2 text-white fs-4">VELVET VOGUE</a>
+            <a href="index.php" class="nav-link px-2 text-white fs-4">VELVET VOGUE</a>
           </li>
         </ul>
 
@@ -37,8 +37,8 @@
             Account
         </button> 
 
-        <a href="../php/profile.php" class="text-warning me-2" style="text-decoration: none; margin-left: 10px;">
-            <img src="../assets/profile.png" alt="Company Logo" style="height: 30px; margin-right: 5px;">
+        <a href="profile.php" class="text-warning me-2" style="text-decoration: none; margin-left: 10px;">
+            <img src="assets/profile.png" alt="Company Logo" style="height: 30px; margin-right: 5px;">
         </a>
         
         </div>
@@ -48,11 +48,11 @@
   <div class="container">
     <header class="d-flex justify-content-center py-3">
       <ul class="nav nav-pills">
-        <li class="nav-item"><a href="../php/home.php" class="nav-link">HOME</a></li>
-        <li class="nav-item"><a href="../php/tshirt.php" class="nav-link">T-SHIRTS</a></li>
-        <li class="nav-item"><a href="../php/pants.php" class="nav-link">PANTS</a></li>
-        <li class="nav-item"><a href="../php/shorts.php" class="nav-link">SHORTS</a></li>
-        <li class="nav-item"><a href="../php/hoodies.php" class="nav-link active"aria-current="page">HOODIES</a></li>
+        <li class="nav-item"><a href="home.php" class="nav-link">HOME</a></li>
+        <li class="nav-item"><a href="tshirt.php" class="nav-link">T-SHIRTS</a></li>
+        <li class="nav-item"><a href="pants.php" class="nav-link">PANTS</a></li>
+        <li class="nav-item"><a href="shorts.php" class="nav-link">SHORTS</a></li>
+        <li class="nav-item"><a href="hoodies.php" class="nav-link active"aria-current="page">HOODIES</a></li>
       </ul>
     </header>
   </div>
@@ -63,10 +63,11 @@
   <div class="album py-5 bg-light">
     <div class="container">
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4"> <!-- Increased gap between products -->
+            
             <!-- Product 1 -->
             <div class="col">
                 <div class="card shadow-sm product-card">
-                    <img src="../assets/hoodie1.svg" class="card-img-top" alt="Hoodie Image">
+                    <img src="assets/hoodie1.svg" class="card-img-top" alt="Hoodie Image">
                     <div class="card-body">
                         <p class="card-text">Xavier - Stylish fur hoodie for men.</p>
                         <div class="d-flex justify-content-between align-items-center">
@@ -84,7 +85,7 @@
             <!-- Product 2 -->
             <div class="col">
                 <div class="card shadow-sm product-card">
-                    <img src="../assets/hoodie1.svg" class="card-img-top" alt="Hoodie Image">
+                    <img src="assets/hoodie1.svg" class="card-img-top" alt="Hoodie Image">
                     <div class="card-body">
                         <p class="card-text">Xavier - Stylish fur hoodie for men.</p>
                         <div class="d-flex justify-content-between align-items-center">
@@ -102,7 +103,7 @@
             <!-- Product 3 -->
             <div class="col">
                 <div class="card shadow-sm product-card">
-                    <img src="../assets/hoodie1.svg" class="card-img-top" alt="Hoodie Image">
+                    <img src="assets/hoodie1.svg" class="card-img-top" alt="Hoodie Image">
                     <div class="card-body">
                         <p class="card-text">Xavier - Stylish fur hoodie for men.</p>
                         <div class="d-flex justify-content-between align-items-center">
@@ -168,15 +169,15 @@
     <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
     <div class="col-md-4 d-flex align-items-center">
         <a href="/" class="mb-3 me-2 mb-md-0 text-body-secondary text-decoration-none lh-1">
-            <img src="../assets/brand.png" alt="Company Logo" width="30" height="24">
+            <img src="assets/brand.png" alt="Company Logo" width="30" height="24">
         </a>
         <span class="mb-3 mb-md-0 text-body-secondary" style="white-space: nowrap;">© 2024 Velvet Vogue Clothing Company. All rights reserved.</span>
     </div>
 
     <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
-        <li class="ms-3"><a class="text-body-secondary" href="#"><img src="../assets/visa.png" alt="visa" width="32" height="32"></a></li>
-        <li class="ms-3"><a class="text-body-secondary" href="#"><img src="../assets/card.png" alt="mastercard" width="32" height="32"></a></li>
-        <li class="ms-3"><a class="text-body-secondary" href="#"><img src="../assets/american-express.png" alt="americanexpress" width="32" height="32"></a></li>
+        <li class="ms-3"><a class="text-body-secondary" href="#"><img src="assets/visa.png" alt="visa" width="32" height="32"></a></li>
+        <li class="ms-3"><a class="text-body-secondary" href="#"><img src="assets/card.png" alt="mastercard" width="32" height="32"></a></li>
+        <li class="ms-3"><a class="text-body-secondary" href="#"><img src="assets/american-express.png" alt="americanexpress" width="32" height="32"></a></li>
     </ul>
     </footer>
   </div>
@@ -208,13 +209,13 @@
                     <p>or login with:</p>
                     <div class="social-icons"> 
                         <button type="button" class="btn btn-link">
-                            <img src="../assets/facebook.png" alt="Facebook" style="width: 20px; height: 20px;">
+                            <img src="assets/facebook.png" alt="Facebook" style="width: 20px; height: 20px;">
                         </button>
                         <button type="button" class="btn btn-link">
-                            <img src="../assets/google.png" alt="Google" style="width: 20px; height: 20px;">
+                            <img src="assets/google.png" alt="Google" style="width: 20px; height: 20px;">
                         </button>
                         <button type="button" class="btn btn-link">
-                            <img src="../assets/twitter.png" alt="Twitter" style="width: 20px; height: 20px;">
+                            <img src="assets/twitter.png" alt="Twitter" style="width: 20px; height: 20px;">
                         </button>
                     </div>
                 </div>
@@ -269,13 +270,13 @@
                     <p>or Sign up with:</p>
                     <div class="social-icons d-flex justify-content-center"> 
                         <button type="button" class="btn btn-link">
-                            <img src="../assets/facebook.png" alt="Facebook" style="width: 20px; height: 20px;">
+                            <img src="assets/facebook.png" alt="Facebook" style="width: 20px; height: 20px;">
                         </button>
                         <button type="button" class="btn btn-link">
-                            <img src="../assets/google.png" alt="Google" style="width: 20px; height: 20px;">
+                            <img src="assets/google.png" alt="Google" style="width: 20px; height: 20px;">
                         </button>
                         <button type="button" class="btn btn-link">
-                            <img src="../assets/twitter.png" alt="Twitter" style="width: 20px; height: 20px;">
+                            <img src="assets/twitter.png" alt="Twitter" style="width: 20px; height: 20px;">
                         </button>
                     </div>
                 </div>
@@ -299,7 +300,7 @@
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body d-flex flex-column align-items-center">
-                <img src="../assets/hoodie1.svg" class="img-fluid mb-3" alt="Xavier - Stylish fur hoodie for men." style="max-height: 200px;">
+                <img src="assets/hoodie1.svg" class="img-fluid mb-3" alt="Xavier - Stylish fur hoodie for men." style="max-height: 200px;">
                 <h6 class="text-center mb-3">Xavier - Stylish fur hoodie for men.</h6>
                 <div class="mb-4 w-100">
                     <label class="form-label">Select Size</label>
@@ -340,7 +341,7 @@
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body d-flex flex-column align-items-center">
-                <img src="../assets/hoodie2.svg" class="img-fluid mb-3" alt="Xavier - Stylish fur hoodie for women." style="max-height: 200px;">
+                <img src="assets/hoodie2.svg" class="img-fluid mb-3" alt="Xavier - Stylish fur hoodie for women." style="max-height: 200px;">
                 <h6 class="text-center mb-3">Xavier - Stylish fur hoodie for women.</h6>
                 <div class="mb-4 w-100">
                     <label class="form-label">Select Size</label>
@@ -381,7 +382,7 @@
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body d-flex flex-column align-items-center">
-                <img src="../assets/hoodie3.svg" class="img-fluid mb-3" alt="Xavier - Classic zip hoodie." style="max-height: 200px;">
+                <img src="assets/hoodie3.svg" class="img-fluid mb-3" alt="Xavier - Classic zip hoodie." style="max-height: 200px;">
                 <h6 class="text-center mb-3">Xavier - Classic zip hoodie.</h6>
                 <div class="mb-4 w-100">
                     <label class="form-label">Select Size</label>

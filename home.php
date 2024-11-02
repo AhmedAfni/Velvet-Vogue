@@ -7,11 +7,12 @@
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="../css/home.css">
+   
+    <link rel="stylesheet" href="css/home.css">
 
-    <script src="../javascript/home.js"></script>
+    <script src="assets/javascript/home.js"></script>
 
-    <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
     
 </head>
 <body>
@@ -23,7 +24,7 @@
 
         <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
           <li class="nav-item">
-            <a href="../php/index.php" class="nav-link px-2 text-white fs-4">VELVET VOGUE</a>
+            <a href="index.php" class="nav-link px-2 text-white fs-4">VELVET VOGUE</a>
           </li>
         </ul>
 
@@ -37,8 +38,8 @@
                 Account
             </button> 
 
-            <a href="../php/profile.php" class="text-warning me-2" style="text-decoration: none; margin-left: 10px;">
-                <img src="../assets/profile.png" alt="Company Logo" style="height: 30px; margin-right: 5px;">
+            <a href="profile.php" class="text-warning me-2" style="text-decoration: none; margin-left: 10px;">
+                <img src="assets/profile.png" alt="Company Logo" style="height: 30px; margin-right: 5px;">
             </a>
         
         </div>
@@ -49,11 +50,11 @@
   <div class="container">
     <header class="d-flex justify-content-center py-3">
       <ul class="nav nav-pills">
-        <li class="nav-item"><a href="../php/home.php" class="nav-link active"aria-current="page">HOME</a></li>
-        <li class="nav-item"><a href="../php/tshirt.php" class="nav-link" >T-SHIRTS</a></li>
-        <li class="nav-item"><a href="../php/pants.php" class="nav-link">PANTS</a></li>
-        <li class="nav-item"><a href="../php/shorts.php" class="nav-link">SHORTS</a></li>
-        <li class="nav-item"><a href="../php/hoodies.php" class="nav-link">HOODIES</a></li>
+        <li class="nav-item"><a href="home.php" class="nav-link active"aria-current="page">HOME</a></li>
+        <li class="nav-item"><a href="tshirt.php" class="nav-link" >T-SHIRTS</a></li>
+        <li class="nav-item"><a href="pants.php" class="nav-link">PANTS</a></li>
+        <li class="nav-item"><a href="shorts.php" class="nav-link">SHORTS</a></li>
+        <li class="nav-item"><a href="hoodies.php" class="nav-link">HOODIES</a></li>
       </ul>
     </header>
   </div>
@@ -71,26 +72,26 @@
 
   <div class="carousel-inner">
     <div class="carousel-item active">
-        <img src="../assets/slider1.svg" class="d-block mx-auto" alt="First slide">
+        <img src="assets/slider1.svg" class="d-block mx-auto" alt="First slide">
     </div>
     <div class="carousel-item">
-        <img src="../assets/slider2.svg" class="d-block mx-auto" alt="Second slide">
+        <img src="assets/slider2.svg" class="d-block mx-auto" alt="Second slide">
     </div>
     <div class="carousel-item">
-        <img src="../assets/slider3.svg" class="d-block mx-auto" alt="Third slide">
+        <img src="assets/slider3.svg" class="d-block mx-auto" alt="Third slide">
     </div>
     <div class="carousel-item">
-        <img src="../assets/slider4.svg" class="d-block mx-auto" alt="Third slide">
+        <img src="assets/slider4.svg" class="d-block mx-auto" alt="Third slide">
     </div>
 </div>
 
 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-    <img src="../assets/left.png" alt="Previous" style="width: 30px; height: 30px;"> <!-- Custom previous image -->
+    <img src="assets/left.png" alt="Previous" style="width: 30px; height: 30px;"> <!-- Custom previous image -->
     <span class="visually-hidden">Previous</span>
   </button>
 
   <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-    <img src="../assets/next.png" alt="Next" style="width: 30px; height: 30px;"> <!-- Custom next image -->
+    <img src="assets/next.png" alt="Next" style="width: 30px; height: 30px;"> <!-- Custom next image -->
     <span class="visually-hidden">Next</span>
   </button>
 </div> 
@@ -111,10 +112,10 @@
     <div class="col mb-3">
       <h5>SHOP</h5>
       <ul class="nav flex-column">
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">T-Shirts</a></li>
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Pants</a></li>
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Shorts</a></li>
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Hoodies</a></li>
+        <li class="nav-item mb-2"><a href="tshirt.php" class="nav-link p-0 text-body-secondary">T-Shirts</a></li>
+        <li class="nav-item mb-2"><a href="pants.php" class="nav-link p-0 text-body-secondary">Pants</a></li>
+        <li class="nav-item mb-2"><a href="shorts.php" class="nav-link p-0 text-body-secondary">Shorts</a></li>
+        <li class="nav-item mb-2"><a href="hoodies.php" class="nav-link p-0 text-body-secondary">Hoodies</a></li>
       </ul>
     </div>
 
@@ -145,15 +146,15 @@
   <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
   <div class="col-md-4 d-flex align-items-center">
     <a href="/" class="mb-3 me-2 mb-md-0 text-body-secondary text-decoration-none lh-1">
-        <img src="../assets/brand.png" alt="Company Logo" width="30" height="24">
+        <img src="assets/brand.png" alt="Company Logo" width="30" height="24">
     </a>
     <span class="mb-3 mb-md-0 text-body-secondary" style="white-space: nowrap;">© 2024 Velvet Vogue Clothing Company. All rights reserved.</span>
 </div>
 
     <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
-    <li class="ms-3"><a class="text-body-secondary" href="#"><img src="../assets/visa.png" alt="visa" width="32" height="32"></a></li>
-    <li class="ms-3"><a class="text-body-secondary" href="#"><img src="../assets/card.png" alt="mastercard" width="32" height="32"></a></li>
-    <li class="ms-3"><a class="text-body-secondary" href="#"><img src="../assets/american-express.png" alt="americanexpress" width="32" height="32"></a></li>
+    <li class="ms-3"><a class="text-body-secondary" href="#"><img src="assets/visa.png" alt="visa" width="32" height="32"></a></li>
+    <li class="ms-3"><a class="text-body-secondary" href="#"><img src="assets/card.png" alt="mastercard" width="32" height="32"></a></li>
+    <li class="ms-3"><a class="text-body-secondary" href="#"><img src="assets/american-express.png" alt="americanexpress" width="32" height="32"></a></li>
 </ul>
   </footer>
 </div>
@@ -185,13 +186,13 @@
           <p>or login with:</p>
           <div class="social-icons"> 
             <button type="button" class="btn btn-link">
-                <img src="../assets/facebook.png" alt="Facebook" style="width: 20px; height: 20px;">
+                <img src="assets/facebook.png" alt="Facebook" style="width: 20px; height: 20px;">
             </button>
             <button type="button" class="btn btn-link">
-                <img src="../assets/google.png" alt="Google" style="width: 20px; height: 20px;">
+                <img src="assets/google.png" alt="Google" style="width: 20px; height: 20px;">
             </button>
             <button type="button" class="btn btn-link">
-                <img src="../assets/twitter.png" alt="Twitter" style="width: 20px; height: 20px;">
+                <img src="assets/twitter.png" alt="Twitter" style="width: 20px; height: 20px;">
             </button>
           </div>
         </div>
@@ -214,7 +215,7 @@
       </div>
       <div class="modal-body">
         <h1>VELVET VOGUE</h1>
-        <form action="../php/signup.php" method="POST"> <!-- Action to signup.php -->
+        <form action="signup.php" method="POST"> <!-- Action to signup.php -->
           <div class="mb-3">
             <label for="signupFullName" class="form-label">Full name</label>
             <input type="text" class="form-control" id="signupFullName" required placeholder="Enter your full name">
@@ -246,13 +247,13 @@
           <p>or Sign up with:</p>
           <div class="social-icons d-flex justify-content-center"> 
             <button type="button" class="btn btn-link">
-                <img src="../assets/facebook.png" alt="Facebook" style="width: 20px; height: 20px;">
+                <img src="assets/facebook.png" alt="Facebook" style="width: 20px; height: 20px;">
             </button>
             <button type="button" class="btn btn-link">
-                <img src="../assets/google.png" alt="Google" style="width: 20px; height: 20px;">
+                <img src="assets/google.png" alt="Google" style="width: 20px; height: 20px;">
             </button>
             <button type="button" class="btn btn-link">
-                <img src="../assets/twitter.png" alt="Twitter" style="width: 20px; height: 20px;">
+                <img src="assets/twitter.png" alt="Twitter" style="width: 20px; height: 20px;">
             </button>
           </div>
         </div>

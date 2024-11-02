@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Velvet-Vogue</title>
 
-    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="css/index.css">
 
     <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32x32.png">
 
@@ -17,7 +17,7 @@
             <h2 class="logo">Velvet Vogue</h2>
         </header>
 
-    <video src="../assets/bg.mp4" muted loop autoplay></video> 
+    <video src="assets/bg.mp4" muted loop autoplay></video> 
 
     <div class="overlay"></div>
 

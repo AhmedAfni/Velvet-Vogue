@@ -7,21 +7,22 @@
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="../css/profile.css"> 
+    
+    <link rel="stylesheet" href="css/profile.css"> 
 
-    <script src="../javascript/profile.js"></script>
+    <script src="javascript/profile.js"></script>
 
-    <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
 </head>
 <body>
 
 <header class="p-3 bg-dark text-white">
     <div class="container">
         <div class="d-flex justify-content-between">
-            <a href="../php/home.php" class="nav-link px-2 text-white fs-4">VELVET VOGUE</a>
+            <a href="home.php" class="nav-link px-2 text-white fs-4">VELVET VOGUE</a>
             <div>
                 <button type="button" class="btn btn-warning me-2" data-bs-toggle="modal" data-bs-target="#cartModal">
-                    <img src="../assets/cart.png" alt="Cart Logo" style="height: 20px; margin-right: 5px;"> Cart
+                    <img src="assets/cart.png" alt="Cart Logo" style="height: 20px; margin-right: 5px;"> Cart
                 </button> 
                 <button type="button" class="btn btn-danger" onclick="signOut()">
                     Sign Out
@@ -36,7 +37,7 @@
         <div class="col-md-4">
             <div class="card">
                 <div class="card-body text-center">
-                    <img src="../assets/profile.png" alt="Profile Picture" class="rounded-circle" width="150" height="150">
+                    <img src="assets/profile.png" alt="Profile Picture" class="rounded-circle" width="150" height="150">
                     <h5 class="card-title mt-3">John Doe</h5>
                     <p class="card-text">Email: johndoe@example.com</p>
                     <p class="card-text">Phone: +1234567890</p>
@@ -119,15 +120,15 @@
     <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
         <div class="col-md-4 d-flex align-items-center">
             <a href="/" class="mb-3 me-2 mb-md-0 text-body-secondary text-decoration-none lh-1">
-                <img src="../assets/brand.png" alt="Company Logo" width="30" height="24">
+                <img src="assets/brand.png" alt="Company Logo" width="30" height="24">
             </a>
             <span class="mb-3 mb-md-0 text-body-secondary" style="white-space: nowrap;">© 2024 Velvet Vogue Clothing Company. All rights reserved.</span>
         </div>
 
         <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
-            <li class="ms-3"><a class="text-body-secondary" href="#"><img src="../assets/visa.png" alt="visa" width="32" height="32"></a></li>
-            <li class="ms-3"><a class="text-body-secondary" href="#"><img src="../assets/card.png" alt="mastercard" width="32" height="32"></a></li>
-            <li class="ms-3"><a class="text-body-secondary" href="#"><img src="../assets/american-express.png" alt="americanexpress" width="32" height="32"></a></li>
+            <li class="ms-3"><a class="text-body-secondary" href="#"><img src="assets/visa.png" alt="visa" width="32" height="32"></a></li>
+            <li class="ms-3"><a class="text-body-secondary" href="#"><img src="assets/card.png" alt="mastercard" width="32" height="32"></a></li>
+            <li class="ms-3"><a class="text-body-secondary" href="#"><img src="assets/american-express.png" alt="americanexpress" width="32" height="32"></a></li>
         </ul>
     </footer>
 </div>
