@@ -9,6 +9,10 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
     <link rel="stylesheet" href="../css/hoodies.css">
+
+    <script src="../javascript/hoodie.js"></script>
+
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32x32.png">
 </head>
 <body>
 
@@ -53,9 +57,70 @@
     </header>
   </div>
 
+
   <!-- Add your Hoodies specific content here -->
 
-  
+  <div class="album py-5 bg-light">
+    <div class="container">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+            <!-- Product 1 -->
+            <div class="col">
+                <div class="card shadow-sm">
+                    <img src="../assets/hoodie1.svg" class="card-img-top" alt="Hoodie Image">
+                    <div class="card-body">
+                        <p class="card-text">Xavier - Stylish fur hoodie for men.</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-sm btn-outline-secondary" style="color: #000000; background-color: #f0ad4e; border-color: #f0ad4e;" data-bs-toggle="modal" data-bs-target="#productModal1">
+                                    View
+                                </button>
+                            </div>
+                            <small class="text-muted">LKR. 3,490.00</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 2 -->
+            <div class="col">
+                <div class="card shadow-sm">
+                    <img src="../assets/hoodie2.svg" class="card-img-top" alt="Hoodie Image">
+                    <div class="card-body">
+                        <p class="card-text">Xavier - Stylish fur hoodie for women.</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-sm btn-outline-secondary" style="color: #000000; background-color: #f0ad4e; border-color: #f0ad4e;" data-bs-toggle="modal" data-bs-target="#productModal2">
+                                    View
+                                </button>
+                            </div>
+                            <small class="text-muted">LKR. 3,990.00</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 3 -->
+            <div class="col">
+                <div class="card shadow-sm">
+                    <img src="../assets/hoodie3.svg" class="card-img-top" alt="Hoodie Image">
+                    <div class="card-body">
+                        <p class="card-text">Xavier - Classic zip hoodie.</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-sm btn-outline-secondary" style="color: #000000; background-color: #f0ad4e; border-color: #f0ad4e;" data-bs-toggle="modal" data-bs-target="#productModal3">
+                                    View
+                                </button>
+                            </div>
+                            <small class="text-muted">LKR. 4,490.00</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Add more products as needed -->
+        </div>
+    </div>
+  </div>
 
   <div class="container">
     <footer class="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-5 my-5 border-top">
@@ -224,5 +289,95 @@
     </div>
   </div>
 
+  <!-- Product Modals -->
+  <!-- Modal for Product 1 -->
+  <div class="modal fade" id="productModal1" tabindex="-1" aria-labelledby="productModalLabel1" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="productModalLabel1">Choose Your Size</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>Xavier - Stylish fur hoodie for men.</p>
+                <div class="mb-3">
+                    <label for="sizeSelect1" class="form-label">Select Size</label>
+                    <select class="form-select" id="sizeSelect1">
+                        <option value="" disabled selected>Select your size</option>
+                        <option value="S">Small</option>
+                        <option value="M">Medium</option>
+                        <option value="L">Large</option>
+                        <option value="XL">Extra Large</option>
+                    </select>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="buyNowButton1">Buy Now</button>
+                <button type="button" class="btn btn-warning" id="addToCartButton1">Add to Cart</button>
+            </div>
+        </div>
+    </div>
+  </div>
+
+  <!-- Modal for Product 2 -->
+  <div class="modal fade" id="productModal2" tabindex="-1" aria-labelledby="productModalLabel2" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="productModalLabel2">Choose Your Size</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>Xavier - Stylish fur hoodie for women.</p>
+                <div class="mb-3">
+                    <label for="sizeSelect2" class="form-label">Select Size</label>
+                    <select class="form-select" id="sizeSelect2">
+                        <option value="" disabled selected>Select your size</option>
+                        <option value="S">Small</option>
+                        <option value="M">Medium</option>
+                        <option value="L">Large</option>
+                        <option value="XL">Extra Large</option>
+                    </select>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="buyNowButton2">Buy Now</button>
+                <button type="button" class="btn btn-warning" id="addToCartButton2">Add to Cart</button>
+            </div>
+        </div>
+    </div>
+  </div>
+
+  <!-- Modal for Product 3 -->
+  <div class="modal fade" id="productModal3" tabindex="-1" aria-labelledby="productModalLabel3" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="productModalLabel3">Choose Your Size</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>Xavier - Classic zip hoodie.</p>
+                <div class="mb-3">
+                    <label for="sizeSelect3" class="form-label">Select Size</label>
+                    <select class="form-select" id="sizeSelect3">
+                        <option value="" disabled selected>Select your size</option>
+                        <option value="S">Small</option>
+                        <option value="M">Medium</option>
+                        <option value="L">Large</option>
+                        <option value="XL">Extra Large</option>
+                    </select>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="buyNowButton3">Buy Now</button>
+                <button type="button" class="btn btn-warning" id="addToCartButton3">Add to Cart</button>
+            </div>
+        </div>
+    </div>
+  </div>
+
+  
 </body>
 </html>
+
