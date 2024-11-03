@@ -27,7 +27,6 @@ body {
   color: #FFC107; /* Text color on hover for non-active links */
 } 
 
-
 .product-card{
   transition: transform 0.3s ease; box-shadow: 0.3 ease;
 }
@@ -36,3 +35,8 @@ body {
   transform: scale(1.05);
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
+
+.modal-header.bg-primary {
+  background-color: #FFC107 !important; /* Changes the background to red */
+} 
+
