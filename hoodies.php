@@ -85,12 +85,12 @@
             <!-- Product 2 -->
             <div class="col">
                 <div class="card shadow-sm product-card">
-                    <img src="assets/hoodie1.svg" class="card-img-top" alt="Hoodie Image">
+                    <img src="assets/hoodie2.svg" class="card-img-top" alt="Hoodie Image">
                     <div class="card-body">
                         <p class="card-text">Xavier - Stylish fur hoodie for men.</p>
                         <div class="d-flex justify-content-between align-items-center">
                             <div class="btn-group">
-                                <button type="button" class="btn btn-sm btn-outline-secondary" style="color: #000000; background-color: #f0ad4e; border-color: #f0ad4e;" data-bs-toggle="modal" data-bs-target="#productModal1">
+                                <button type="button" class="btn btn-sm btn-outline-secondary" style="color: #000000; background-color: #f0ad4e; border-color: #f0ad4e;" data-bs-toggle="modal" data-bs-target="#productModal2">
                                     View
                                 </button>
                             </div>
@@ -103,12 +103,12 @@
             <!-- Product 3 -->
             <div class="col">
                 <div class="card shadow-sm product-card">
-                    <img src="assets/hoodie1.svg" class="card-img-top" alt="Hoodie Image">
+                    <img src="assets/hoodie3.svg" class="card-img-top" alt="Hoodie Image">
                     <div class="card-body">
                         <p class="card-text">Xavier - Stylish fur hoodie for men.</p>
                         <div class="d-flex justify-content-between align-items-center">
                             <div class="btn-group">
-                                <button type="button" class="btn btn-sm btn-outline-secondary" style="color: #000000; background-color: #f0ad4e; border-color: #f0ad4e;" data-bs-toggle="modal" data-bs-target="#productModal1">
+                                <button type="button" class="btn btn-sm btn-outline-secondary" style="color: #000000; background-color: #f0ad4e; border-color: #f0ad4e;" data-bs-toggle="modal" data-bs-target="#productModal3">
                                     View
                                 </button>
                             </div>
@@ -330,7 +330,7 @@
             </div>
         </div>
     </div>
-  </div>
+</div>
 
   <!-- Modal for Product 2 -->
   <div class="modal fade" id="productModal2" tabindex="-1" aria-labelledby="productModalLabel2" aria-hidden="true">
@@ -342,7 +342,7 @@
             </div>
             <div class="modal-body d-flex flex-column align-items-center">
                 <img src="assets/hoodie2.svg" class="img-fluid mb-3" alt="Xavier - Stylish fur hoodie for women." style="max-height: 200px;">
-                <h6 class="text-center mb-3">Xavier - Stylish fur hoodie for women.</h6>
+                <h6 class="text-center mb-3">Xavier - Stylish fur hoodie for men.</h6>
                 <div class="mb-4 w-100">
                     <label class="form-label">Select Size</label>
                     <div class="d-flex justify-content-around">
@@ -371,10 +371,10 @@
             </div>
         </div>
     </div>
-  </div>
+</div>
 
   <!-- Modal for Product 3 -->
-  <div class="modal fade" id="productModal3" tabindex="-1" aria-labelledby="productModalLabel3" aria-hidden="true">
+<div class="modal fade" id="productModal3" tabindex="-1" aria-labelledby="productModalLabel3" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header bg-primary text-white">
@@ -412,7 +412,8 @@
             </div>
         </div>
     </div>
-  </div>
+</div>
+
 
   
 </body>
