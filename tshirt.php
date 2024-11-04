@@ -20,7 +20,7 @@
         <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
             <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
                 <li class="nav-item">
-                    <a href="index.html" class="nav-link px-2 text-white fs-4">VELVET VOGUE</a>
+                    <a href="index.php" class="nav-link px-2 text-white fs-4">VELVET VOGUE</a>
                 </li>
             </ul>
 
@@ -44,11 +44,11 @@
 <div class="container">
     <header class="d-flex justify-content-center py-3">
         <ul class="nav nav-pills">
-            <li class="nav-item"><a href="home.html" class="nav-link">HOME</a></li>
-            <li class="nav-item"><a href="tshirt.html" class="nav-link active" aria-current="page">T-SHIRTS</a></li>
-            <li class="nav-item"><a href="pants.html" class="nav-link">PANTS</a></li>
-            <li class="nav-item"><a href="shorts.html" class="nav-link">SHORTS</a></li>
-            <li class="nav-item"><a href="hoodies.html" class="nav-link">HOODIES</a></li>
+            <li class="nav-item"><a href="home.php" class="nav-link">HOME</a></li>
+            <li class="nav-item"><a href="tshirt.php" class="nav-link active" aria-current="page">T-SHIRTS</a></li>
+            <li class="nav-item"><a href="pants.php" class="nav-link">PANTS</a></li>
+            <li class="nav-item"><a href="shorts.php" class="nav-link">SHORTS</a></li>
+            <li class="nav-item"><a href="hoodies.php" class="nav-link">HOODIES</a></li>
         </ul>
     </header>
 </div>

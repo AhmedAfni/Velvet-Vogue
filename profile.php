@@ -19,7 +19,7 @@
 <header class="p-3 bg-dark text-white">
     <div class="container">
         <div class="d-flex justify-content-between">
-            <a href="home.html" class="nav-link px-2 text-white fs-4">VELVET VOGUE</a>
+            <a href="home.php" class="nav-link px-2 text-white fs-4">VELVET VOGUE</a>
             <div>
                 <a href="cart.html" class="btn btn-warning me-2">
                     <img src="assets/cart.png" alt="Cart Logo" style="height: 20px; margin-right: 5px;"> Cart

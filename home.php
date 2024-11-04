@@ -24,7 +24,7 @@
 
         <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
           <li class="nav-item">
-            <a href="index.html" class="nav-link px-2 text-white fs-4">VELVET VOGUE</a>
+            <a href="index.php" class="nav-link px-2 text-white fs-4">VELVET VOGUE</a>
           </li>
         </ul>
 
@@ -38,7 +38,7 @@
                 Account
             </button> 
 
-            <a href="profile.html" class="text-warning me-2" style="text-decoration: none; margin-left: 10px;">
+            <a href="profile.php" class="text-warning me-2" style="text-decoration: none; margin-left: 10px;">
                 <img src="assets/profile.png" alt="Company Logo" style="height: 30px; margin-right: 5px;">
             </a>
         
@@ -50,11 +50,11 @@
   <div class="container">
     <header class="d-flex justify-content-center py-3">
       <ul class="nav nav-pills">
-        <li class="nav-item"><a href="home.html" class="nav-link active"aria-current="page">HOME</a></li>
-        <li class="nav-item"><a href="tshirt.html" class="nav-link" >T-SHIRTS</a></li>
-        <li class="nav-item"><a href="pants.html" class="nav-link">PANTS</a></li>
-        <li class="nav-item"><a href="shorts.html" class="nav-link">SHORTS</a></li>
-        <li class="nav-item"><a href="hoodies.html" class="nav-link">HOODIES</a></li>
+        <li class="nav-item"><a href="home.php" class="nav-link active"aria-current="page">HOME</a></li>
+        <li class="nav-item"><a href="tshirt.php" class="nav-link" >T-SHIRTS</a></li>
+        <li class="nav-item"><a href="pants.php" class="nav-link">PANTS</a></li>
+        <li class="nav-item"><a href="shorts.php" class="nav-link">SHORTS</a></li>
+        <li class="nav-item"><a href="hoodies.php" class="nav-link">HOODIES</a></li>
       </ul>
     </header>
   </div>
@@ -112,10 +112,10 @@
     <div class="col mb-3">
       <h5>SHOP</h5>
       <ul class="nav flex-column">
-        <li class="nav-item mb-2"><a href="tshirt.html" class="nav-link p-0 text-body-secondary">T-Shirts</a></li>
-        <li class="nav-item mb-2"><a href="pants.html" class="nav-link p-0 text-body-secondary">Pants</a></li>
-        <li class="nav-item mb-2"><a href="shorts.html" class="nav-link p-0 text-body-secondary">Shorts</a></li>
-        <li class="nav-item mb-2"><a href="hoodies.html" class="nav-link p-0 text-body-secondary">Hoodies</a></li>
+        <li class="nav-item mb-2"><a href="tshirt.php" class="nav-link p-0 text-body-secondary">T-Shirts</a></li>
+        <li class="nav-item mb-2"><a href="pants.php" class="nav-link p-0 text-body-secondary">Pants</a></li>
+        <li class="nav-item mb-2"><a href="shorts.php" class="nav-link p-0 text-body-secondary">Shorts</a></li>
+        <li class="nav-item mb-2"><a href="hoodies.php" class="nav-link p-0 text-body-secondary">Hoodies</a></li>
       </ul>
     </div>
 
@@ -215,7 +215,7 @@
       </div>
       <div class="modal-body">
         <h1>VELVET VOGUE</h1>
-        <form action="signup.php" method="POST"> <!-- Action to signup.php -->
+        <form method="POST"> <!-- Action to signup.php -->
           <div class="mb-3">
             <label for="signupFullName" class="form-label">Full name</label>
             <input type="text" class="form-control" id="signupFullName" required placeholder="Enter your full name">
@@ -267,5 +267,8 @@
   </div>
 </div>
 
+
+
 </body>
 </html>
+

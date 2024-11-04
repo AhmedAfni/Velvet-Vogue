@@ -3,12 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shorts</title>
+    <title>Hoodies</title>
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
     <link rel="stylesheet" href="css/main.css">
+
+    <script src="javascript/hoodie.js"></script>
 
     <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
 </head>
@@ -21,7 +23,7 @@
 
         <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
           <li class="nav-item">
-            <a href="index.html" class="nav-link px-2 text-white fs-4">VELVET VOGUE</a>
+            <a href="index.php" class="nav-link px-2 text-white fs-4">VELVET VOGUE</a>
           </li>
         </ul>
 
@@ -35,7 +37,7 @@
             Account
         </button> 
 
-        <a href="profile.html" class="text-warning me-2" style="text-decoration: none; margin-left: 10px;">
+        <a href="profile.php" class="text-warning me-2" style="text-decoration: none; margin-left: 10px;">
             <img src="assets/profile.png" alt="Company Logo" style="height: 30px; margin-right: 5px;">
         </a>
         
@@ -46,18 +48,80 @@
   <div class="container">
     <header class="d-flex justify-content-center py-3">
       <ul class="nav nav-pills">
-        <li class="nav-item"><a href="home.html" class="nav-link">HOME</a></li>
-        <li class="nav-item"><a href="tshirt.html" class="nav-link" >T-SHIRTS</a></li>
-        <li class="nav-item"><a href="pants.html" class="nav-link">PANTS</a></li>
-        <li class="nav-item"><a href="shorts.html" class="nav-link active"aria-current="page">SHORTS</a></li>
-        <li class="nav-item"><a href="hoodies.html" class="nav-link">HOODIES</a></li>
+        <li class="nav-item"><a href="home.php" class="nav-link">HOME</a></li>
+        <li class="nav-item"><a href="tshirt.php" class="nav-link">T-SHIRTS</a></li>
+        <li class="nav-item"><a href="pants.php" class="nav-link">PANTS</a></li>
+        <li class="nav-item"><a href="shorts.php" class="nav-link">SHORTS</a></li>
+        <li class="nav-item"><a href="hoodies.php" class="nav-link active"aria-current="page">HOODIES</a></li>
       </ul>
     </header>
   </div>
 
-  <!-- Add your Shorts specific content here -->
 
-  
+  <!-- Add your Hoodies specific content here -->
+
+  <div class="album py-5 bg-light">
+    <div class="container">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4"> <!-- Increased gap between products -->
+            
+            <!-- Product 1 -->
+            <div class="col">
+                <div class="card shadow-sm product-card">
+                    <img src="assets/hoodie1.svg" class="card-img-top" alt="Hoodie Image">
+                    <div class="card-body">
+                        <p class="card-text">Xavier - Stylish fur hoodie for men.</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-sm btn-outline-secondary" style="color: #000000; background-color: #f0ad4e; border-color: #f0ad4e;" data-bs-toggle="modal" data-bs-target="#productModal1">
+                                    View
+                                </button>
+                            </div>
+                            <small class="text-muted">LKR. 3,490.00</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 2 -->
+            <div class="col">
+                <div class="card shadow-sm product-card">
+                    <img src="assets/hoodie2.svg" class="card-img-top" alt="Hoodie Image">
+                    <div class="card-body">
+                        <p class="card-text">Xavier - Stylish fur hoodie for men.</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-sm btn-outline-secondary" style="color: #000000; background-color: #f0ad4e; border-color: #f0ad4e;" data-bs-toggle="modal" data-bs-target="#productModal2">
+                                    View
+                                </button>
+                            </div>
+                            <small class="text-muted">LKR. 3,490.00</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 3 -->
+            <div class="col">
+                <div class="card shadow-sm product-card">
+                    <img src="assets/hoodie3.svg" class="card-img-top" alt="Hoodie Image">
+                    <div class="card-body">
+                        <p class="card-text">Xavier - Stylish fur hoodie for men.</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-sm btn-outline-secondary" style="color: #000000; background-color: #f0ad4e; border-color: #f0ad4e;" data-bs-toggle="modal" data-bs-target="#productModal3">
+                                    View
+                                </button>
+                            </div>
+                            <small class="text-muted">LKR. 3,490.00</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Add more products as needed -->
+        </div>
+    </div>
+  </div>
 
   <div class="container">
     <footer class="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-5 my-5 border-top">
@@ -226,5 +290,132 @@
     </div>
   </div>
 
+  <!-- Product Modals -->
+  <!-- Modal for Product 1 -->
+  <div class="modal fade" id="productModal1" tabindex="-1" aria-labelledby="productModalLabel1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-primary text-white">
+                <h5 class="modal-title" id="productModalLabel1">Choose Your Size</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body d-flex flex-column align-items-center">
+                <img src="assets/hoodie1.svg" class="img-fluid mb-3" alt="Xavier - Stylish fur hoodie for men." style="max-height: 200px;">
+                <h6 class="text-center mb-3">Xavier - Stylish fur hoodie for men.</h6>
+                <div class="mb-4 w-100">
+                    <label class="form-label">Select Size</label>
+                    <div class="d-flex justify-content-around">
+                        <div class="form-check">
+                            <input type="radio" id="sizeS1" name="sizeSelect1" value="S" class="form-check-input">
+                            <label for="sizeS1" class="form-check-label">Small</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" id="sizeM1" name="sizeSelect1" value="M" class="form-check-input">
+                            <label for="sizeM1" class="form-check-label">Medium</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" id="sizeL1" name="sizeSelect1" value="L" class="form-check-input">
+                            <label for="sizeL1" class="form-check-label">Large</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" id="sizeXL1" name="sizeSelect1" value="XL" class="form-check-input">
+                            <label for="sizeXL1" class="form-check-label">Extra Large</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" id="buyNowButton1">Buy Now</button>
+                <button type="button" class="btn btn-warning" id="addToCartButton1">Add to Cart</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+  <!-- Modal for Product 2 -->
+  <div class="modal fade" id="productModal2" tabindex="-1" aria-labelledby="productModalLabel2" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-primary text-white">
+                <h5 class="modal-title" id="productModalLabel2">Choose Your Size</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body d-flex flex-column align-items-center">
+                <img src="assets/hoodie2.svg" class="img-fluid mb-3" alt="Xavier - Stylish fur hoodie for women." style="max-height: 200px;">
+                <h6 class="text-center mb-3">Xavier - Stylish fur hoodie for men.</h6>
+                <div class="mb-4 w-100">
+                    <label class="form-label">Select Size</label>
+                    <div class="d-flex justify-content-around">
+                        <div class="form-check">
+                            <input type="radio" id="sizeS2" name="sizeSelect2" value="S" class="form-check-input">
+                            <label for="sizeS2" class="form-check-label">Small</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" id="sizeM2" name="sizeSelect2" value="M" class="form-check-input">
+                            <label for="sizeM2" class="form-check-label">Medium</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" id="sizeL2" name="sizeSelect2" value="L" class="form-check-input">
+                            <label for="sizeL2" class="form-check-label">Large</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" id="sizeXL2" name="sizeSelect2" value="XL" class="form-check-input">
+                            <label for="sizeXL2" class="form-check-label">Extra Large</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" id="buyNowButton2">Buy Now</button>
+                <button type="button" class="btn btn-warning" id="addToCartButton2">Add to Cart</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+  <!-- Modal for Product 3 -->
+<div class="modal fade" id="productModal3" tabindex="-1" aria-labelledby="productModalLabel3" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-primary text-white">
+                <h5 class="modal-title" id="productModalLabel3">Choose Your Size</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body d-flex flex-column align-items-center">
+                <img src="assets/hoodie3.svg" class="img-fluid mb-3" alt="Xavier - Classic zip hoodie." style="max-height: 200px;">
+                <h6 class="text-center mb-3">Xavier - Classic zip hoodie.</h6>
+                <div class="mb-4 w-100">
+                    <label class="form-label">Select Size</label>
+                    <div class="d-flex justify-content-around">
+                        <div class="form-check">
+                            <input type="radio" id="sizeS3" name="sizeSelect3" value="S" class="form-check-input">
+                            <label for="sizeS3" class="form-check-label">Small</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" id="sizeM3" name="sizeSelect3" value="M" class="form-check-input">
+                            <label for="sizeM3" class="form-check-label">Medium</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" id="sizeL3" name="sizeSelect3" value="L" class="form-check-input">
+                            <label for="sizeL3" class="form-check-label">Large</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" id="sizeXL3" name="sizeSelect3" value="XL" class="form-check-input">
+                            <label for="sizeXL3" class="form-check-label">Extra Large</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" id="buyNowButton3">Buy Now</button>
+                <button type="button" class="btn btn-warning" id="addToCartButton3">Add to Cart</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+  
 </body>
 </html>
+
