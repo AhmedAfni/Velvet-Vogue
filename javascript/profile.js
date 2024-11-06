@@ -1,6 +1,6 @@
 function signOut() {
     // Add your sign-out logic here, e.g., redirect to a logout script or clear session
-    window.location.href = 'home.html'; // Example redirect to logout
+    window.location.href = 'home.php'; // Example redirect to logout
 }
 
 // Handle form submission for editing profile
