@@ -1,3 +1,44 @@
+<?php
+session_start();
+include 'config.php';
+// Check if the user is logged in
+if (!isset($_SESSION['user_id'])) {
+    // User is not logged in, display login button only
+    ?>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>User Profile - Login Required</title>
+        
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    </head>
+    <body>
+    <div class="container text-center mt-5">
+        <h2>You are not logged in.</h2>
+        <button class="btn btn-primary" onclick="history.back()">Go Back</button>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    </body>
+    </html>
+    <?php
+    exit;
+}
+// Retrieve user data from the database
+$user_id = $_SESSION['user_id'];
+$sql = "SELECT full_name, email, home_address, postal_code FROM users WHERE id = ?";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("i", $user_id);
+$stmt->execute();
+$result = $stmt->get_result();
+$user = $result->fetch_assoc();
+
+$stmt->close();
+$conn->close();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,13 +46,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Profile</title>
     
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    
-    <link rel="stylesheet" href="css/profile.css"> 
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="css/profile.css">
     <script src="javascript/profile.js"></script>
-
     <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
 </head>
 <body>
@@ -38,10 +76,8 @@
             <div class="card">
                 <div class="card-body text-center">
                     <img src="assets/profile.png" alt="Profile Picture" class="rounded-circle" width="150" height="150">
-                    <h5 class="card-title mt-3">John Doe</h5>
-                    <p class="card-text">Email: johndoe@example.com</p>
-                    <p class="card-text">Phone: +1234567890</p>
-                    <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#editProfileModal">Edit Profile</button>
+                    <h5 class="card-title mt-3"><?= htmlspecialchars($user['full_name']) ?></h5>
+                    <p class="card-text">Email: <?= htmlspecialchars($user['email']) ?></p>
                 </div>
             </div>
         </div>
@@ -57,60 +93,23 @@
                         <tbody>
                             <tr>
                                 <th scope="row">Full Name</th>
-                                <td>John Doe</td>
+                                <td><?= htmlspecialchars($user['full_name']) ?></td>
                             </tr>
                             <tr>
                                 <th scope="row">Email</th>
-                                <td>johndoe@example.com</td>
+                                <td><?= htmlspecialchars($user['email']) ?></td>
                             </tr>
                             <tr>
                                 <th scope="row">Address</th>
-                                <td>123 Main St, City, Country</td>
+                                <td><?= htmlspecialchars($user['home_address']) ?></td>
                             </tr>
                             <tr>
                                 <th scope="row">Postal Code</th>
-                                <td>12345</td>
+                                <td><?= htmlspecialchars($user['postal_code']) ?></td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Edit Profile Modal -->
-<div class="modal fade" id="editProfileModal" tabindex="-1" aria-labelledby="editProfileModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="editProfileModalLabel">Edit Profile</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <form id="editProfileForm">
-                    <div class="mb-3">
-                        <label for="fullName" class="form-label">Full Name</label>
-                        <input type="text" class="form-control" id="fullName" value="John Doe" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="email" class="form-label">Email</label>
-                        <input type="email" class="form-control" id="email" value="johndoe@example.com" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="phone" class="form-label">Phone</label>
-                        <input type="text" class="form-control" id="phone" value="+1234567890" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="address" class="form-label">Address</label>
-                        <input type="text" class="form-control" id="address" value="123 Main St, City, Country" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="postalCode" class="form-label">Postal Code</label>
-                        <input type="text" class="form-control" id="postalCode" value="12345" required>
-                    </div>
-                    <button type="submit" class="btn btn-warning">Save Changes</button>
-                </form>
             </div>
         </div>
     </div>
@@ -122,7 +121,7 @@
             <a href="/" class="mb-3 me-2 mb-md-0 text-body-secondary text-decoration-none lh-1">
                 <img src="assets/brand.png" alt="Company Logo" width="30" height="24">
             </a>
-            <span class="mb-3 mb-md-0 text-body-secondary" style="white-space: nowrap;">© 2024 Velvet Vogue Clothing Company. All rights reserved.</span>
+            <span class="mb-3 mb-md-0 text-body-secondary">© 2024 Velvet Vogue Clothing Company. All rights reserved.</span>
         </div>
 
         <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
@@ -133,6 +132,13 @@
     </footer>
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    function signOut() {
+    // Redirect to the logout script to end the session
+    window.location.href = "logout.php";
+}
 
+</script>
 </body>
 </html>

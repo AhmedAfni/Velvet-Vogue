@@ -6,11 +6,10 @@
     <title>Home</title>
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
    
     <link rel="stylesheet" href="css/home.css">
 
-    <script src="assets/javascript/home.js"></script>
+    <script src="javascript/home.js"></script>
 
     <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
     
@@ -35,7 +34,7 @@
         <div class="text-end">
 
             <button type="button" class="btn btn-warning me-2" data-bs-toggle="modal" data-bs-target="#loginModal">
-                Account
+                Login
             </button> 
 
             <a href="profile.php" class="text-warning me-2" style="text-decoration: none; margin-left: 10px;">
@@ -169,19 +168,19 @@
       </div>
       <div class="modal-body">
         <h1>VELVET VOGUE</h1>
-        <form>
+        <form id="loginForm"> <!-- Added id for targeting in JS -->
           <div class="mb-3">
-            <label for="username" class="form-label">Username</label>
-            <input type="text" class="form-control" id="username" placeholder="Enter your username">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="email" required placeholder="Enter your email">
           </div>
           <div class="mb-3">
             <label for="password" class="form-label">Password</label>
-            <input type="password" class="form-control" id="password" placeholder="Enter your password">
+            <input type="password" class="form-control" id="password" required placeholder="Enter your password">
           </div>
           <button type="submit" class="btn btn-warning w-100">Login</button>
+          <div id="loginError" class="text-danger mt-2" style="display: none;"></div> <!-- Error message display -->
         </form>
 
-        <!-- New section for social login -->
         <div class="mt-3 text-center">
           <p>or login with:</p>
           <div class="social-icons"> 
@@ -205,6 +204,10 @@
     </div>
   </div>
 </div>
+<div id="alertContainer" tabindex="-3"></div> <!-- This will hold the alert message -->
+
+
+
 
 <div class="modal fade" id="signupModal" tabindex="-1" aria-labelledby="signupModalLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -215,34 +218,33 @@
       </div>
       <div class="modal-body">
         <h1>VELVET VOGUE</h1>
-        <form method="POST"> <!-- Action to signup.php -->
+        <form id="signupForm"> <!-- Removed action and method attributes -->
           <div class="mb-3">
             <label for="signupFullName" class="form-label">Full name</label>
-            <input type="text" class="form-control" id="signupFullName" required placeholder="Enter your full name">
+            <input type="text" class="form-control" id="signupFullName" name="signupFullName" required placeholder="Enter your full name">
           </div>
           <div class="mb-3">
             <label for="signupHomeAddress" class="form-label">Home address</label>
-            <input type="text" class="form-control" id="signupHomeAddress" required placeholder="Enter your home address">
+            <input type="text" class="form-control" id="signupHomeAddress" name="signupHomeAddress" required placeholder="Enter your home address">
           </div>
           <div class="mb-3">
             <label for="signupPostalCode" class="form-label">Postal code</label>
-            <input type="text" class="form-control" id="signupPostalCode" required placeholder="Enter your postal code">
+            <input type="text" class="form-control" id="signupPostalCode" name="signupPostalCode" required placeholder="Enter your postal code">
           </div>
           <div class="mb-3">
             <label for="signupEmail" class="form-label">Email address</label>
-            <input type="email" class="form-control" id="signupEmail" required placeholder="Enter your email">
+            <input type="email" class="form-control" id="signupEmail" name="signupEmail" required placeholder="Enter your email">
           </div>
           <div class="mb-3">
             <label for="signupPassword" class="form-label">Password</label>
-            <input type="password" class="form-control" id="signupPassword" required placeholder="Create a password">
+            <input type="password" class="form-control" id="signupPassword" name="signupPassword" required placeholder="Create a password">
           </div>
           <div class="mb-3">
             <label for="confirmPassword" class="form-label">Confirm Password</label>
-            <input type="password" class="form-control" id="confirmPassword" required placeholder="Confirm your password">
+            <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" required placeholder="Confirm your password">
           </div>
-          <button type="submit" class="btn btn-warning w-100">Sign Up</button> <!-- Changed to btn-warning and w-100 -->
+          <button type="button" class="btn btn-warning w-100" id="signupButton">Sign Up</button>
         </form>
-
         <div class="social-buttons mt-3 text-center">
           <p>or Sign up with:</p>
           <div class="social-icons d-flex justify-content-center"> 
@@ -257,6 +259,7 @@
             </button>
           </div>
         </div>
+        <div id="signupAlert" class="mt-3"></div> <!-- For success/error messages -->
       </div>
       <div class="modal-footer d-flex justify-content-center align-items-center" style="background-color: #f8f9fa; padding: 15px;">
         <p class="mb-0 me-3" style="font-size: 1.1rem; font-weight: 500;">Already have an account? 
@@ -270,5 +273,79 @@
 
 
 </body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<script>
+
+document.getElementById('loginForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent traditional form submission
+
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+    const alertContainer = document.getElementById('alertContainer');
+    
+    alertContainer.innerHTML = ''; // Clear any previous alerts
+
+    fetch('login.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: email, password: password })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.status === 'success') {
+            // Success alert
+            alertContainer.innerHTML = `
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    ${data.message}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            `;
+            setTimeout(() => {
+                // Reload or redirect as needed after showing success message
+                location.reload();
+            }, 2000); // Delay for 2 seconds
+        } else {
+            // Error alert
+            alertContainer.innerHTML = `
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    ${data.message}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            `;
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        // Display generic error message
+        alertContainer.innerHTML = `
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                An error occurred. Please try again.
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        `;
+    });
+});
+
+
+document.getElementById('signupButton').addEventListener('click', function() {
+  const formData = new FormData(document.getElementById('signupForm'));
+  
+  fetch('signup.php', {
+    method: 'POST',
+    body: formData
+  })
+  .then(response => response.json())
+  .then(data => {
+    const alertDiv = document.getElementById('signupAlert');
+    if (data.success) {
+      alertDiv.innerHTML = '<div class="alert alert-success">Account created successfully! You can now log in.</div>';
+      document.getElementById('signupForm').reset();
+    } else {
+      alertDiv.innerHTML = '<div class="alert alert-danger">' + data.message + '</div>';
+    }
+  })
+  .catch(error => console.error('Error:', error));
+});
+</script>
 </html>
 
