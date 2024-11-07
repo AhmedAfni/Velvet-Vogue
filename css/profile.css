@@ -34,3 +34,8 @@ body {
   object-fit: cover;
 }
 
+.alert-box {
+  border: 2px solid;
+  padding: 20px;
+  border-radius: 8px;
+}

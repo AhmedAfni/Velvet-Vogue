@@ -74,7 +74,7 @@
         <img src="assets/slider1.svg" class="d-block mx-auto" alt="First slide">
     </div>
     <div class="carousel-item">
-        <img src="assets/slider2.svg" class="d-block mx-auto" alt="Second slide">
+        <img src="assets/slider0.svg" class="d-block mx-auto" alt="Second slide">
     </div>
     <div class="carousel-item">
         <img src="assets/slider3.svg" class="d-block mx-auto" alt="Third slide">
@@ -94,6 +94,87 @@
     <span class="visually-hidden">Next</span>
   </button>
 </div> 
+
+<img src="assets/NameTagWhite.svg" alt="Under Image" style="width: 100%; height: auto; margin-top: 30px;">
+
+<div class="container">
+  <div class="row mt-4 d-flex justify-content-center">
+    <!-- Gift Coupon Cards -->
+    <div class="col-md-2 mb-4">
+      <div class="card shadow-lg rounded-lg" style="width: 100%; transition: transform 0.3s ease, box-shadow 0.3s ease;">
+        <div class="card-img-wrapper" style="position: relative; overflow: hidden; border-radius: 10px;">
+          <img src="assets/_coupon.svg" class="card-img-top" alt="coupon" style="max-width: 100%; height: auto; border-radius: 10px;">
+        </div>
+        <div class="card-body">
+          <h5 class="card-title text-center" style="font-size: 1.1rem; font-weight: bold; color: #333;">Gift Coupon</h5>
+          <p class="card-text text-center" style="font-size: 1rem; color: #555;">LKR. 2000.00</p>
+          <a href="#" class="btn btn-warning w-100">Gift</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-2 mb-4">
+      <div class="card shadow-lg rounded-lg" style="width: 100%; transition: transform 0.3s ease, box-shadow 0.3s ease;">
+        <div class="card-img-wrapper" style="position: relative; overflow: hidden; border-radius: 10px;">
+          <img src="assets/_coupon.svg" class="card-img-top" alt="coupon" style="max-width: 100%; height: auto; border-radius: 10px;">
+        </div>
+        <div class="card-body">
+          <h5 class="card-title text-center" style="font-size: 1.1rem; font-weight: bold; color: #333;">Gift Coupon</h5>
+          <p class="card-text text-center" style="font-size: 1rem; color: #555;">LKR. 4000.00</p>
+          <a href="#" class="btn btn-warning w-100">Gift</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-2 mb-4">
+      <div class="card shadow-lg rounded-lg" style="width: 100%; transition: transform 0.3s ease, box-shadow 0.3s ease;">
+        <div class="card-img-wrapper" style="position: relative; overflow: hidden; border-radius: 10px;">
+          <img src="assets/_coupon.svg" class="card-img-top" alt="coupon" style="max-width: 100%; height: auto; border-radius: 10px;">
+        </div>
+        <div class="card-body">
+          <h5 class="card-title text-center" style="font-size: 1.1rem; font-weight: bold; color: #333;">Gift Coupon</h5>
+          <p class="card-text text-center" style="font-size: 1rem; color: #555;">LKR. 6000.00</p>
+          <a href="#" class="btn btn-warning w-100">Gift</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-2 mb-4">
+      <div class="card shadow-lg rounded-lg" style="width: 100%; transition: transform 0.3s ease, box-shadow 0.3s ease;">
+        <div class="card-img-wrapper" style="position: relative; overflow: hidden; border-radius: 10px;">
+          <img src="assets/_coupon.svg" class="card-img-top" alt="coupon" style="max-width: 100%; height: auto; border-radius: 10px;">
+        </div>
+        <div class="card-body">
+          <h5 class="card-title text-center" style="font-size: 1.1rem; font-weight: bold; color: #333;">Gift Coupon</h5>
+          <p class="card-text text-center" style="font-size: 1rem; color: #555;">LKR. 8000.00</p>
+          <a href="#" class="btn btn-warning w-100">Gift</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-2 mb-4">
+      <div class="card shadow-lg rounded-lg" style="width: 100%; transition: transform 0.3s ease, box-shadow 0.3s ease;">
+        <div class="card-img-wrapper" style="position: relative; overflow: hidden; border-radius: 10px;">
+          <img src="assets/_coupon.svg" class="card-img-top" alt="coupon" style="max-width: 100%; height: auto; border-radius: 10px;">
+        </div>
+        <div class="card-body">
+          <h5 class="card-title text-center" style="font-size: 1.1rem; font-weight: bold; color: #333;">Gift Coupon</h5>
+          <p class="card-text text-center" style="font-size: 1rem; color: #555;">LKR. 10000.00</p>
+          <a href="#" class="btn btn-warning w-100">Gift</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .card:hover {
+    transform: translateY(-10px); /* Adds a smooth upward transition on hover */
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1); /* Stronger shadow on hover */
+  }
+</style>
+
+
 
 
   <div class="container">
@@ -346,6 +427,12 @@ document.getElementById('signupButton').addEventListener('click', function() {
   })
   .catch(error => console.error('Error:', error));
 });
+
+var carousel = new bootstrap.Carousel(myCarousel, {
+        interval: 0, 
+        ride: 'carousel' 
+    });
+
 </script>
 </html>
 

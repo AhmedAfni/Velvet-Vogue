@@ -11,13 +11,17 @@ if (!isset($_SESSION['user_id'])) {
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>User Profile - Login Required</title>
-        
+        <link rel="stylesheet" href="css/profile.css">
+        <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     </head>
     <body>
     <div class="container text-center mt-5">
-        <h2>You are not logged in.</h2>
-        <button class="btn btn-primary" onclick="history.back()">Go Back</button>
+        <div class="alert-box text-danger border-warning">
+            <h2>Not logged in yet? Join now to explore exclusive men's fashion at Velvet Vogue!</h2>
+            <button class="btn btn-warning mt-3" onclick="history.back()">Go Back</button>
+        </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
