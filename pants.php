@@ -32,7 +32,7 @@
         <div class="text-end">
 
         <button type="button" class="btn btn-warning me-2" data-bs-toggle="modal" data-bs-target="#loginModal">
-            Account
+        REGISTER
         </button> 
 
         <a href="profile.php" class="text-warning me-2" style="text-decoration: none; margin-left: 10px;">
@@ -59,12 +59,11 @@
 
   <div class="album py-5 bg-light">
     <div class="container">
-        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4"> <!-- Increased gap between products -->
-            
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
             <!-- Product 1 -->
             <div class="col">
-                <div class="card shadow-sm product-card">
-                    <img src="assets/pant1.svg" class="card-img-top" alt="Tshirt Image">
+                <div class="card shadow-lg border-0 product-card">
+                    <img src="assets/pant1.svg" class="card-img-top rounded-top" alt="Denim Pants - Stretch Casual">
                     <div class="card-body">
                         <p class="card-text">Stretch Casual Denim Pants.</p>
                         <div class="d-flex justify-content-between align-items-center">
@@ -79,10 +78,10 @@
                 </div>
             </div>
 
-             <!-- Product 2 -->
-             <div class="col">
+            <!-- Product 2 -->
+            <div class="col">
                 <div class="card shadow-sm product-card">
-                    <img src="assets/pant2.svg" class="card-img-top" alt="Tshirt Image">
+                    <img src="assets/pant2.svg" class="card-img-top" alt="Denim Pants - Stretch Casual">
                     <div class="card-body">
                         <p class="card-text">Stretch Casual Denim Pants.</p>
                         <div class="d-flex justify-content-between align-items-center">
@@ -97,10 +96,10 @@
                 </div>
             </div>
 
-              <!-- Product 3 -->
-              <div class="col">
+            <!-- Product 3 -->
+            <div class="col">
                 <div class="card shadow-sm product-card">
-                    <img src="assets/pant3.svg" class="card-img-top" alt="Tshirt Image">
+                    <img src="assets/pant3.svg" class="card-img-top" alt="Denim Pants - Stretch Casual">
                     <div class="card-body">
                         <p class="card-text">Stretch Casual Denim Pants.</p>
                         <div class="d-flex justify-content-between align-items-center">
@@ -114,70 +113,17 @@
                     </div>
                 </div>
             </div>
-
-            <!-- Product 4 -->
-            <div class="col">
-                <div class="card shadow-sm product-card">
-                    <img src="assets/pant4.svg" class="card-img-top" alt="Tshirt Image">
-                    <div class="card-body">
-                        <p class="card-text">Stretch Casual Denim Pants.</p>
-                        <div class="d-flex justify-content-between align-items-center">
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-sm btn-outline-secondary" style="color: #000000; background-color: #f0ad4e; border-color: #f0ad4e;" data-bs-toggle="modal" data-bs-target="#productModal4">
-                                    View
-                                </button>
-                            </div>
-                            <small class="text-muted">LKR. 2,990.00</small>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-             <!-- Product 5 -->
-             <div class="col">
-                <div class="card shadow-sm product-card">
-                    <img src="assets/pant5.svg" class="card-img-top" alt="Tshirt Image">
-                    <div class="card-body">
-                        <p class="card-text">Stretch Casual Denim Pants.</p>
-                        <div class="d-flex justify-content-between align-items-center">
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-sm btn-outline-secondary" style="color: #000000; background-color: #f0ad4e; border-color: #f0ad4e;" data-bs-toggle="modal" data-bs-target="#productModal5">
-                                    View
-                                </button>
-                            </div>
-                            <small class="text-muted">LKR. 2,990.00</small>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Product 6 -->
-            <div class="col">
-                <div class="card shadow-sm product-card">
-                    <img src="assets/pant6.svg" class="card-img-top" alt="Tshirt Image">
-                    <div class="card-body">
-                        <p class="card-text">Stretch Casual Denim Pants.</p>
-                        <div class="d-flex justify-content-between align-items-center">
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-sm btn-outline-secondary" style="color: #000000; background-color: #f0ad4e; border-color: #f0ad4e;" data-bs-toggle="modal" data-bs-target="#productModal6">
-                                    View
-                                </button>
-                            </div>
-                            <small class="text-muted">LKR. 2,990.00</small>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Add more products as needed -->
+ 
         </div>
     </div>
-  </div> 
+</div>
 
-  <div class="modal fade" id="productModal1" tabindex="-1" aria-labelledby="productModalLabel1" aria-hidden="true">
+<!-- Product Modal 1 -->
+<div class="modal fade" id="productModal1" tabindex="-1" aria-labelledby="productModalLabel1" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header bg-primary text-white">
-                <h5 class="modal-title" id="productModalLabel">Choose Your Size</h5>
+                <h5 class="modal-title" id="productModalLabel1">Choose Your Size</h5>
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body d-flex flex-column align-items-center">
@@ -213,6 +159,7 @@
     </div>
 </div>
 
+<!-- Product 2 Modal -->
 <div class="modal fade" id="productModal2" tabindex="-1" aria-labelledby="productModalLabel2" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
@@ -228,19 +175,19 @@
                     <div class="d-flex justify-content-around">
                         <div class="form-check">
                             <input type="radio" id="sizeS2" name="sizeSelect2" value="S" class="form-check-input">
-                            <label for="sizeS1" class="form-check-label">Small</label>
+                            <label for="sizeS2" class="form-check-label">Small</label>
                         </div>
                         <div class="form-check">
                             <input type="radio" id="sizeM2" name="sizeSelect2" value="M" class="form-check-input">
-                            <label for="sizeM1" class="form-check-label">Medium</label>
+                            <label for="sizeM2" class="form-check-label">Medium</label>
                         </div>
                         <div class="form-check">
                             <input type="radio" id="sizeL2" name="sizeSelect2" value="L" class="form-check-input">
-                            <label for="sizeL1" class="form-check-label">Large</label>
+                            <label for="sizeL2" class="form-check-label">Large</label>
                         </div>
                         <div class="form-check">
                             <input type="radio" id="sizeXL2" name="sizeSelect2" value="XL" class="form-check-input">
-                            <label for="sizeXL1" class="form-check-label">Extra Large</label>
+                            <label for="sizeXL2" class="form-check-label">Extra Large</label>
                         </div>
                     </div>
                 </div>
@@ -253,6 +200,7 @@
     </div>
 </div>
 
+<!-- Product 3 Modal -->
 <div class="modal fade" id="productModal3" tabindex="-1" aria-labelledby="productModalLabel3" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
@@ -261,26 +209,26 @@
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body d-flex flex-column align-items-center">
-                <img src="assets/pant3.svg" class="img-fluid mb-3" alt="Stretch Casual Denim Pants." style="max-height: 200px;">
-                <h6 class="text-center mb-3">Stretch Casual Denim Pants.</h6>
+                <img src="assets/jacket.svg" class="img-fluid mb-3" alt="Winter Jacket" style="max-height: 200px;">
+                <h6 class="text-center mb-3">Warm Winter Jacket</h6>
                 <div class="mb-4 w-100">
                     <label class="form-label">Select Size</label>
                     <div class="d-flex justify-content-around">
                         <div class="form-check">
-                            <input type="radio" id="sizeS1" name="sizeSelect1" value="S" class="form-check-input">
-                            <label for="sizeS1" class="form-check-label">Small</label>
+                            <input type="radio" id="sizeS3" name="sizeSelect3" value="S" class="form-check-input">
+                            <label for="sizeS3" class="form-check-label">Small</label>
                         </div>
                         <div class="form-check">
                             <input type="radio" id="sizeM3" name="sizeSelect3" value="M" class="form-check-input">
-                            <label for="sizeM1" class="form-check-label">Medium</label>
+                            <label for="sizeM3" class="form-check-label">Medium</label>
                         </div>
                         <div class="form-check">
                             <input type="radio" id="sizeL3" name="sizeSelect3" value="L" class="form-check-input">
-                            <label for="sizeL1" class="form-check-label">Large</label>
+                            <label for="sizeL3" class="form-check-label">Large</label>
                         </div>
                         <div class="form-check">
                             <input type="radio" id="sizeXL3" name="sizeSelect3" value="XL" class="form-check-input">
-                            <label for="sizeXL1" class="form-check-label">Extra Large</label>
+                            <label for="sizeXL3" class="form-check-label">Extra Large</label>
                         </div>
                     </div>
                 </div>
@@ -293,125 +241,8 @@
     </div>
 </div>
 
-<div class="modal fade" id="productModal4" tabindex="-1" aria-labelledby="productModalLabel4" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header bg-primary text-white">
-                <h5 class="modal-title" id="productModalLabel4">Choose Your Size</h5>
-                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body d-flex flex-column align-items-center">
-                <img src="assets/pant4.svg" class="img-fluid mb-3" alt="Stretch Casual Denim Pants." style="max-height: 200px;">
-                <h6 class="text-center mb-3">Stretch Casual Denim Pants.</h6>
-                <div class="mb-4 w-100">
-                    <label class="form-label">Select Size</label>
-                    <div class="d-flex justify-content-around">
-                        <div class="form-check">
-                            <input type="radio" id="sizeS4" name="sizeSelect4" value="S" class="form-check-input">
-                            <label for="sizeS1" class="form-check-label">Small</label>
-                        </div>
-                        <div class="form-check">
-                            <input type="radio" id="sizeM4" name="sizeSelect4" value="M" class="form-check-input">
-                            <label for="sizeM1" class="form-check-label">Medium</label>
-                        </div>
-                        <div class="form-check">
-                            <input type="radio" id="sizeL4" name="sizeSelect4" value="L" class="form-check-input">
-                            <label for="sizeL1" class="form-check-label">Large</label>
-                        </div>
-                        <div class="form-check">
-                            <input type="radio" id="sizeXL4" name="sizeSelect4" value="XL" class="form-check-input">
-                            <label for="sizeXL1" class="form-check-label">Extra Large</label>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-danger" id="buyNowButton4">Buy Now</button>
-                <button type="button" class="btn btn-warning" id="addToCartButton4">Add to Cart</button>
-            </div>
-        </div>
-    </div>
-</div>
 
-<div class="modal fade" id="productModal5" tabindex="-1" aria-labelledby="productModalLabel5" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header bg-primary text-white">
-                <h5 class="modal-title" id="productModalLabel5">Choose Your Size</h5>
-                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body d-flex flex-column align-items-center">
-                <img src="assets/pant5.svg" class="img-fluid mb-3" alt="Stretch Casual Denim Pants." style="max-height: 200px;">
-                <h6 class="text-center mb-3">Stretch Casual Denim Pants.</h6>
-                <div class="mb-4 w-100">
-                    <label class="form-label">Select Size</label>
-                    <div class="d-flex justify-content-around">
-                        <div class="form-check">
-                            <input type="radio" id="sizeS5" name="sizeSelect5" value="S" class="form-check-input">
-                            <label for="sizeS1" class="form-check-label">Small</label>
-                        </div>
-                        <div class="form-check">
-                            <input type="radio" id="sizeM5" name="sizeSelect5" value="M" class="form-check-input">
-                            <label for="sizeM1" class="form-check-label">Medium</label>
-                        </div>
-                        <div class="form-check">
-                            <input type="radio" id="sizeL5" name="sizeSelect5" value="L" class="form-check-input">
-                            <label for="sizeL1" class="form-check-label">Large</label>
-                        </div>
-                        <div class="form-check">
-                            <input type="radio" id="sizeXL5" name="sizeSelect5" value="XL" class="form-check-input">
-                            <label for="sizeXL1" class="form-check-label">Extra Large</label>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-danger" id="buyNowButton5">Buy Now</button>
-                <button type="button" class="btn btn-warning" id="addToCartButton5">Add to Cart</button>
-            </div>
-        </div>
-    </div>
-</div>
 
-<div class="modal fade" id="productModal6" tabindex="-1" aria-labelledby="productModalLabel6" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header bg-primary text-white">
-                <h5 class="modal-title" id="productModalLabel6">Choose Your Size</h5>
-                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body d-flex flex-column align-items-center">
-                <img src="assets/pant6.svg" class="img-fluid mb-3" alt="Stretch Casual Denim Pants." style="max-height: 200px;">
-                <h6 class="text-center mb-3">Stretch Casual Denim Pants.</h6>
-                <div class="mb-4 w-100">
-                    <label class="form-label">Select Size</label>
-                    <div class="d-flex justify-content-around">
-                        <div class="form-check">
-                            <input type="radio" id="sizeS6" name="sizeSelect6" value="S" class="form-check-input">
-                            <label for="sizeS1" class="form-check-label">Small</label>
-                        </div>
-                        <div class="form-check">
-                            <input type="radio" id="sizeM6" name="sizeSelect6" value="M" class="form-check-input">
-                            <label for="sizeM1" class="form-check-label">Medium</label>
-                        </div>
-                        <div class="form-check">
-                            <input type="radio" id="sizeL6" name="sizeSelect6" value="L" class="form-check-input">
-                            <label for="sizeL1" class="form-check-label">Large</label>
-                        </div>
-                        <div class="form-check">
-                            <input type="radio" id="sizeXL6" name="sizeSelect6" value="XL" class="form-check-input">
-                            <label for="sizeXL1" class="form-check-label">Extra Large</label>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-danger" id="buyNowButton6">Buy Now</button>
-                <button type="button" class="btn btn-warning" id="addToCartButton6">Add to Cart</button>
-            </div>
-        </div>
-    </div>
-</div>
 
   <div class="container">
     <footer class="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-5 my-5 border-top">

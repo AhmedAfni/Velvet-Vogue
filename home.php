@@ -34,7 +34,7 @@
         <div class="text-end">
 
             <button type="button" class="btn btn-warning me-2" data-bs-toggle="modal" data-bs-target="#loginModal">
-                Login
+              REGISTER
             </button> 
 
             <a href="profile.php" class="text-warning me-2" style="text-decoration: none; margin-left: 10px;">
@@ -173,8 +173,6 @@
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1); /* Stronger shadow on hover */
   }
 </style>
-
-
 
 
   <div class="container">
@@ -355,6 +353,7 @@
 
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
 <script>
 
 document.getElementById('loginForm').addEventListener('submit', function(event) {
