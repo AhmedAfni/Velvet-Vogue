@@ -55,190 +55,90 @@
 
 <!-- Add your T-shirt specific content here --> 
 
-<div class="album py-5 bg-light">
-    <div class="container">
-        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4"> 
-            
-            <!-- Product 1 -->
-            <div class="col">
+<?php
+// Include the database configuration file
+include 'config.php';
+session_start();
+
+// Query to fetch product data from the database
+$sql = "SELECT product_id, product_name, description, image_path, price FROM products WHERE product_type='tshirt';";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    echo '<div class="album py-5 bg-light">
+            <div class="container">
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">';
+
+    // Loop through each product and display it
+    while ($row = $result->fetch_assoc()) {
+        echo '<div class="col">
                 <div class="card shadow-sm product-card">
-                    <img src="assets/tshirt1.svg" class="card-img-top" alt="Tshirt Image">
+                    <img src="' . $row['image_path'] . '" class="card-img-top" alt="' . $row['product_name'] . '">
                     <div class="card-body">
-                        <p class="card-text">Men Solid Round Neck T-Shirt.</p>
+                        <p class="card-text">' . $row['description'] . '</p>
                         <div class="d-flex justify-content-between align-items-center">
                             <div class="btn-group">
-                                <button type="button" class="btn btn-sm btn-outline-secondary" style="color: #000000; background-color: #f0ad4e; border-color: #f0ad4e;" data-bs-toggle="modal" data-bs-target="#productModal1">
+                                <button type="button" class="btn btn-sm btn-outline-secondary" style="color: #000000; background-color: #f0ad4e; border-color: #f0ad4e;" data-bs-toggle="modal" data-bs-target="#productModal' . $row['product_id'] . '">
                                     View
                                 </button>
                             </div>
-                            <small class="text-muted">LKR. 990.00</small>
+                            <small class="text-muted">LKR. ' . number_format($row['price'], 2) . '</small>
                         </div>
                     </div>
                 </div>
-            </div>
+              </div>';
 
-             <!-- Product 2 -->
-             <div class="col">
-                <div class="card shadow-sm product-card">
-                    <img src="assets/tshirt2.svg" class="card-img-top" alt="Tshirt Image">
-                    <div class="card-body">
-                        <p class="card-text">Men Solid Round Neck T-Shirt.</p>
-                        <div class="d-flex justify-content-between align-items-center">
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-sm btn-outline-secondary" style="color: #000000; background-color: #f0ad4e; border-color: #f0ad4e;" data-bs-toggle="modal" data-bs-target="#productModal2">
-                                    View
-                                </button>
+        // Modal for each product
+        echo '<div class="modal fade" id="productModal' . $row['product_id'] . '" tabindex="-1" aria-labelledby="productModalLabel' . $row['product_id'] . '" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header bg-primary text-white">
+                            <h5 class="modal-title" id="productModalLabel' . $row['product_id'] . '">Choose Your Size</h5>
+                            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body d-flex flex-column align-items-center">
+                            <img src="' . $row['image_path'] . '" class="img-fluid mb-3" alt="' . $row['product_name'] . '" style="max-height: 200px;">
+                            <h6 class="text-center mb-3">' . $row['product_name'] . '</h6>
+                            <div class="mb-4 w-100">
+                                <label class="form-label">Select Size</label>
+                                <div class="d-flex justify-content-around">
+                                    <div class="form-check">
+                                        <input type="radio" id="sizeS' . $row['product_id'] . '" name="sizeSelect' . $row['product_id'] . '" value="S" class="form-check-input">
+                                        <label for="sizeS' . $row['product_id'] . '" class="form-check-label">Small</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="radio" id="sizeM' . $row['product_id'] . '" name="sizeSelect' . $row['product_id'] . '" value="M" class="form-check-input">
+                                        <label for="sizeM' . $row['product_id'] . '" class="form-check-label">Medium</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="radio" id="sizeL' . $row['product_id'] . '" name="sizeSelect' . $row['product_id'] . '" value="L" class="form-check-input">
+                                        <label for="sizeL' . $row['product_id'] . '" class="form-check-label">Large</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="radio" id="sizeXL' . $row['product_id'] . '" name="sizeSelect' . $row['product_id'] . '" value="XL" class="form-check-input">
+                                        <label for="sizeXL' . $row['product_id'] . '" class="form-check-label">Extra Large</label>
+                                    </div>
+                                </div>
                             </div>
-                            <small class="text-muted">LKR. 990.00</small>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger" id="buyNowButton' . $row['product_id'] . '">Buy Now</button>
+                            <button type="button" class="btn btn-warning" id="addToCartButton' . $row['product_id'] . '" onclick="addToCart(' . $row['product_id'] . ')">Add to Cart</button>
+
                         </div>
                     </div>
                 </div>
-            </div>
+              </div>';
+    }
 
-              <!-- Product 3 -->
-              <div class="col">
-                <div class="card shadow-sm product-card">
-                    <img src="assets/tshirt3.svg" class="card-img-top" alt="Tshirt Image">
-                    <div class="card-body">
-                        <p class="card-text">Men Solid Round Neck T-Shirt.</p>
-                        <div class="d-flex justify-content-between align-items-center">
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-sm btn-outline-secondary" style="color: #000000; background-color: #f0ad4e; border-color: #f0ad4e;" data-bs-toggle="modal" data-bs-target="#productModal3">
-                                    View
-                                </button>
-                            </div>
-                            <small class="text-muted">LKR. 990.00</small>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    echo '</div></div></div>';
+} else {
+    echo '<p>No products found.</p>';
+}
 
-        </div>
-    </div>
-</div>
-
-<!-- Modal for Product 1 -->
-<div class="modal fade" id="productModal1" tabindex="-1" aria-labelledby="productModalLabel1" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header bg-primary text-white">
-                <h5 class="modal-title" id="productModalLabel">Choose Your Size</h5>
-                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body d-flex flex-column align-items-center">
-                <img src="assets/tshirt1.svg" class="img-fluid mb-3" alt="Men Solid Round Neck T-Shirt." style="max-height: 200px;">
-                <h6 class="text-center mb-3">Men Solid Round Neck T-Shirt.</h6>
-                <div class="mb-4 w-100">
-                    <label class="form-label">Select Size</label>
-                    <div class="d-flex justify-content-around">
-                        <div class="form-check">
-                            <input type="radio" id="sizeS1" name="sizeSelect1" value="S" class="form-check-input">
-                            <label for="sizeS1" class="form-check-label">Small</label>
-                        </div>
-                        <div class="form-check">
-                            <input type="radio" id="sizeM1" name="sizeSelect1" value="M" class="form-check-input">
-                            <label for="sizeM1" class="form-check-label">Medium</label>
-                        </div>
-                        <div class="form-check">
-                            <input type="radio" id="sizeL1" name="sizeSelect1" value="L" class="form-check-input">
-                            <label for="sizeL1" class="form-check-label">Large</label>
-                        </div>
-                        <div class="form-check">
-                            <input type="radio" id="sizeXL1" name="sizeSelect1" value="XL" class="form-check-input">
-                            <label for="sizeXL1" class="form-check-label">Extra Large</label>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-danger" id="buyNowButton1">Buy Now</button>
-                <button type="button" class="btn btn-warning" id="addToCartButton1">Add to Cart</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Modal for Product 2 -->
-<div class="modal fade" id="productModal2" tabindex="-1" aria-labelledby="productModalLabel2" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header bg-primary text-white">
-                <h5 class="modal-title" id="productModalLabel2">Choose Your Size</h5>
-                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body d-flex flex-column align-items-center">
-                <img src="assets/tshirt2.svg" class="img-fluid mb-3" alt="Men Solid Round Neck T-Shirt." style="max-height: 200px;">
-                <h6 class="text-center mb-3">Men Solid Round Neck T-Shirt.</h6>
-                <div class="mb-4 w-100">
-                    <label class="form-label">Select Size</label>
-                    <div class="d-flex justify-content-around">
-                        <div class="form-check">
-                            <input type="radio" id="sizeS2" name="sizeSelect2" value="S" class="form-check-input">
-                            <label for="sizeS2" class="form-check-label">Small</label>
-                        </div>
-                        <div class="form-check">
-                            <input type="radio" id="sizeM2" name="sizeSelect2" value="M" class="form-check-input">
-                            <label for="sizeM2" class="form-check-label">Medium</label>
-                        </div>
-                        <div class="form-check">
-                            <input type="radio" id="sizeL2" name="sizeSelect2" value="L" class="form-check-input">
-                            <label for="sizeL2" class="form-check-label">Large</label>
-                        </div>
-                        <div class="form-check">
-                            <input type="radio" id="sizeXL2" name="sizeSelect2" value="XL" class="form-check-input">
-                            <label for="sizeXL2" class="form-check-label">Extra Large</label>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-danger" id="buyNowButton2">Buy Now</button>
-                <button type="button" class="btn btn-warning" id="addToCartButton2">Add to Cart</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Modal for Product 3 -->
-<div class="modal fade" id="productModal3" tabindex="-1" aria-labelledby="productModalLabel3" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header bg-primary text-white">
-                <h5 class="modal-title" id="productModalLabel3">Choose Your Size</h5>
-                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body d-flex flex-column align-items-center">
-                <img src="assets/tshirt3.svg" class="img-fluid mb-3" alt="Men Solid Round Neck T-Shirt." style="max-height: 200px;">
-                <h6 class="text-center mb-3">Men Solid Round Neck T-Shirt.</h6>
-                <div class="mb-4 w-100">
-                    <label class="form-label">Select Size</label>
-                    <div class="d-flex justify-content-around">
-                        <div class="form-check">
-                            <input type="radio" id="sizeS3" name="sizeSelect3" value="S" class="form-check-input">
-                            <label for="sizeS3" class="form-check-label">Small</label>
-                        </div>
-                        <div class="form-check">
-                            <input type="radio" id="sizeM3" name="sizeSelect3" value="M" class="form-check-input">
-                            <label for="sizeM3" class="form-check-label">Medium</label>
-                        </div>
-                        <div class="form-check">
-                            <input type="radio" id="sizeL3" name="sizeSelect3" value="L" class="form-check-input">
-                            <label for="sizeL3" class="form-check-label">Large</label>
-                        </div>
-                        <div class="form-check">
-                            <input type="radio" id="sizeXL3" name="sizeSelect3" value="XL" class="form-check-input">
-                            <label for="sizeXL3" class="form-check-label">Extra Large</label>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-danger" id="buyNowButton3">Buy Now</button>
-                <button type="button" class="btn btn-warning" id="addToCartButton3">Add to Cart</button>
-            </div>
-        </div>
-    </div>
-</div>
+// Close the database connection
+$conn->close();
+?>
 
 
 
@@ -488,6 +388,31 @@ document.getElementById('signupButton').addEventListener('click', function() {
   })
   .catch(error => console.error('Error:', error));
 });
+
+function addToCart(productId) {
+    var size = document.querySelector('input[name="sizeSelect' + productId + '"]:checked');
+
+    if (size) {
+        var selectedSize = size.value;
+
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "add_to_cart.php", true);
+        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+        // Send the product ID and selected size to the server
+        xhr.send("product_id=" + productId + "&size=" + selectedSize);
+
+        xhr.onload = function () {
+            if (xhr.status == 200) {
+                alert(xhr.responseText); // Notify the user that the product was added
+            } else {
+                alert("Error adding product to cart.");
+            }
+        };
+    } else {
+        alert("Please select a size.");
+    }
+}
 </script>
 
 
