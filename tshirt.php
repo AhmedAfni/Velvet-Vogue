@@ -389,6 +389,7 @@ document.getElementById('signupButton').addEventListener('click', function() {
   .catch(error => console.error('Error:', error));
 });
 
+
 function addToCart(productId) {
     var size = document.querySelector('input[name="sizeSelect' + productId + '"]:checked');
 

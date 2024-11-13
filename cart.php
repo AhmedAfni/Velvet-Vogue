@@ -9,6 +9,53 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
 
+
+    <script>
+        // Function to update the price dynamically based on quantity
+        function updatePrice(element, price) {
+            const quantity = parseInt(element.value);
+            const totalPriceElement = element.closest('.row').querySelector('.total-price');
+            if (totalPriceElement) {
+                totalPriceElement.textContent = 'LKR ' + (price * quantity).toFixed(2);
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add event listeners to quantity inputs for increase/decrease
+            const quantityInputs = document.querySelectorAll('input[name="quantity"]');
+
+            quantityInputs.forEach(input => {
+                input.addEventListener('change', function() {
+                    const price = parseFloat(input.closest('.row').querySelector('.price').dataset.price);
+                    updatePrice(input, price);
+                });
+            });
+
+            // Increase and decrease buttons
+            const decreaseButtons = document.querySelectorAll('.decrease-quantity');
+            const increaseButtons = document.querySelectorAll('.increase-quantity');
+
+            decreaseButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const quantityInput = button.closest('.col-md-3').querySelector('input[name="quantity"]');
+                    if (quantityInput.value > 1) {
+                        quantityInput.value = parseInt(quantityInput.value) - 1;
+                        const price = parseFloat(quantityInput.closest('.row').querySelector('.price').dataset.price);
+                        updatePrice(quantityInput, price);
+                    }
+                });
+            });
+
+            increaseButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const quantityInput = button.closest('.col-md-3').querySelector('input[name="quantity"]');
+                    quantityInput.value = parseInt(quantityInput.value) + 1;
+                    const price = parseFloat(quantityInput.closest('.row').querySelector('.price').dataset.price);
+                    updatePrice(quantityInput, price);
+                });
+            });
+        });
+    </script>
 </head>
 <body>
 
@@ -32,7 +79,7 @@
         </div>
     </div>
 </header>
-    
+
 <?php
 session_start();
 include 'config.php'; // Include the database connection file
@@ -70,16 +117,13 @@ if ($result->num_rows == 0) {
 
         <div class="d-flex justify-content-between align-items-center mb-4">
           <h3 class="fw-normal mb-0">Shopping Cart</h3>
-          <div>
-            <p class="mb-0"><span class="text-muted">Sort by:</span> <a href="#!" class="text-body">price <i
-                  class="fas fa-angle-down mt-1"></i></a></p>
-          </div>
         </div>
 
         <?php while ($cart_item = $result->fetch_assoc()): ?>
         <div class="card rounded-3 mb-4">
           <div class="card-body p-4">
             <div class="row d-flex justify-content-between align-items-center">
+              
               <div class="col-md-2 col-lg-2 col-xl-2">
                 <img
                   src="<?php echo htmlspecialchars($cart_item['image_path']); ?>"
@@ -90,26 +134,29 @@ if ($result->num_rows == 0) {
                 <p><span class="text-muted">Size: </span><?php echo htmlspecialchars($cart_item['size']); ?></p>
               </div>
               <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
-                <button data-mdb-button-init data-mdb-ripple-init class="btn btn-link px-2"
-                  onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
+                <button class="btn btn-link px-2 decrease-quantity">
                   <i class="fas fa-minus"></i>
                 </button>
 
-                <input id="form1" min="0" name="quantity" value="<?php echo $cart_item['quantity']; ?>" type="number"
-                  class="form-control form-control-sm" />
+                <input id="form1" min="0" name="quantity" value="<?php echo $cart_item['quantity']; ?>" type="number" class="form-control form-control-sm" />
 
-                <button data-mdb-button-init data-mdb-ripple-init class="btn btn-link px-2"
-                  onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
+                <button class="btn btn-link px-2 increase-quantity">
                   <i class="fas fa-plus"></i>
                 </button>
               </div>
-              <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
-                <h5 class="mb-0">LKR <?php echo number_format($cart_item['price'] * $cart_item['quantity'], 2); ?></h5>
+              <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1 price" data-price="<?php echo $cart_item['price']; ?>">
+                <h5 class="mb-0 total-price">LKR <?php echo number_format($cart_item['price'] * $cart_item['quantity'], 2); ?></h5>
               </div>
-              <div class="col-md-1 col-lg-1 col-xl-1 text-end">
-                <a href="remove_from_cart.php?cart_id=<?php echo $cart_item['cart_id']; ?>" class="text-danger">
-                  <i class="fas fa-trash fa-lg"></i>
-                </a>
+
+              <div class="col-md-1 col-lg-1 col-xl-1 d-flex justify-content-center">
+
+                <form action="remove_from_cart.php" method="get" class="d-inline">
+                  <input type="hidden" name="cart_id" value="<?php echo $cart_item['cart_id']; ?>">
+                  <button type="submit" class="btn btn-link text-danger p-0" style="border: none; background: none;">
+                  <img src="assets/delete.png" alt="Delete" style="height: 20px; width: 20px;">
+                  </button>
+                </form>
+
               </div>
             </div>
           </div>
@@ -130,8 +177,8 @@ if ($result->num_rows == 0) {
 
         <div class="card shadow-sm rounded" style="border: none;">
             <div class="card-body" style="padding: 20px; background-color: #fdf7e2; border-radius: 10px;">
-                <button type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-warning btn-block btn-lg w-100" style="border-radius: 10px; font-weight: bold; transition: 0.3s;">
-                    Proceed to Pay
+                <button type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-warning btn-block btn-lg w-100" style="border-radius: 10px; transition: 0.3s;">
+                    Checkout
                 </button>
             </div>
         </div>
@@ -141,30 +188,22 @@ if ($result->num_rows == 0) {
   </div>
 </section>
 
-<?php
-// Close the database connection
-$conn->close();
-?>
-
-
-
 <div class="container">
-    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
-        <div class="col-md-4 d-flex align-items-center">
-            <a href="/" class="mb-3 me-2 mb-md-0 text-body-secondary text-decoration-none lh-1">
-                <img src="assets/brand.png" alt="Company Logo" width="30" height="24">
-            </a>
-            <span class="mb-3 mb-md-0 text-body-secondary" style="white-space: nowrap;">© 2024 Velvet Vogue Clothing Company. All rights reserved.</span>
-        </div>
-
-        <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
-            <li class="ms-3"><a class="text-body-secondary" href="#"><img src="assets/visa.png" alt="visa" width="32" height="32"></a></li>
-            <li class="ms-3"><a class="text-body-secondary" href="#"><img src="assets/card.png" alt="mastercard" width="32" height="32"></a></li>
-            <li class="ms-3"><a class="text-body-secondary" href="#"><img src="assets/american-express.png" alt="americanexpress" width="32" height="32"></a></li>
-        </ul>
-    </footer>
+  <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+  <div class="col-md-4 d-flex align-items-center">
+    <a href="/" class="mb-3 me-2 mb-md-0 text-body-secondary text-decoration-none lh-1">
+        <img src="assets/brand.png" alt="Company Logo" width="30" height="24">
+    </a>
+    <span class="mb-3 mb-md-0 text-body-secondary" style="white-space: nowrap;">© 2024 Velvet Vogue Clothing Company. All rights reserved.</span>
 </div>
 
+    <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+    <li class="ms-3"><a class="text-body-secondary" href="#"><img src="assets/visa.png" alt="visa" width="32" height="32"></a></li>
+    <li class="ms-3"><a class="text-body-secondary" href="#"><img src="assets/card.png" alt="mastercard" width="32" height="32"></a></li>
+    <li class="ms-3"><a class="text-body-secondary" href="#"><img src="assets/american-express.png" alt="americanexpress" width="32" height="32"></a></li>
+</ul>
+  </footer>
+</div>
 
 </body>
 </html>
