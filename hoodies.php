@@ -18,32 +18,34 @@
 
 <header class="p-3 bg-dark text-white">
     <div class="container">
-    <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-        
+        <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+            <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                <li class="nav-item">
+                    <a href="index.php" class="nav-link px-2 text-white fs-4">VELVET VOGUE</a>
+                </li>
+            </ul>
 
-        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-          <li class="nav-item">
-            <a href="index.php" class="nav-link px-2 text-white fs-4">VELVET VOGUE</a>
-          </li>
-        </ul>
+            <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
+                <input type="search" class="form-control form-control-dark" placeholder="Search..." aria-label="Search">
+            </form>
 
-        <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
-          <input type="search" class="form-control form-control-dark" placeholder="Search..." aria-label="Search">
-        </form>
+            <div class="text-end">
+                <button type="button" class="btn btn-warning me-2" data-bs-toggle="modal" data-bs-target="#loginModal">
+                    REGISTER
+                </button> 
 
-        <div class="text-end">
+                <a href="profile.php" class="text-warning me-2" style="text-decoration: none;">
+                    <img src="assets/profile.png" alt="Company Logo" style="height: 30px;">
+                </a>
 
-        <button type="button" class="btn btn-warning me-2" data-bs-toggle="modal" data-bs-target="#loginModal">
-        REGISTER
-        </button> 
-
-        <a href="profile.php" class="text-warning me-2" style="text-decoration: none; margin-left: 10px;">
-            <img src="assets/profile.png" alt="Company Logo" style="height: 30px; margin-right: 5px;">
-        </a>
-        
+                <a href="cart.php" class="text-warning" style="text-decoration: none;">
+                    <img src="assets/bag.png" alt="Company Logo" style="height: 30px;">
+                </a>
+            </div>
         </div>
     </div>
-  </header>
+</header>
+
 
   <div class="container">
     <header class="d-flex justify-content-center py-3">

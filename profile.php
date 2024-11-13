@@ -63,9 +63,6 @@ $conn->close();
         <div class="d-flex justify-content-between">
             <a href="home.php" class="nav-link px-2 text-white fs-4">VELVET VOGUE</a>
             <div>
-                <a href="cart.php" class="btn btn-warning me-2">
-                    <img src="assets/cart.png" alt="Cart Logo" style="height: 20px; margin-right: 5px;"> Cart
-                </a>
                 <button type="button" class="btn btn-danger" onclick="signOut()">
                     Sign Out
                 </button>

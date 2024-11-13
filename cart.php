@@ -67,15 +67,6 @@
                     <a href="home.php" class="nav-link px-2 text-white fs-4">VELVET VOGUE</a>
                 </li>
             </ul>
-
-            <div class="text-end">
-                <a href="profile.php" style="text-decoration: none;">
-                    <button type="button" class="btn btn-warning me-2">
-                        <img src="assets/profile.png" alt="Profile Picture" style="height: 20px; margin-right: 5px;">
-                        PROFILE
-                    </button>
-                </a>
-            </div>
         </div>
     </div>
 </header>
@@ -88,7 +79,11 @@ include 'config.php'; // Include the database connection file
 $user_id = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : null;
 
 if (!$user_id) {
-    echo 'Error: User not logged in.';
+    echo '<div class="alert alert-danger text-center p-5" style="background-color: #f8d7da; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+        <h4 class="alert-heading">Oops!</h4>
+        <p>You must be logged in to view your cart. Please log in to continue shopping!</p>
+        <a href="home.php" class="btn btn-danger btn-lg">Log In</a>
+    </div>';
     exit;
 }
 
@@ -106,11 +101,11 @@ $result = $stmt->get_result();
 // If the cart is empty
 if ($result->num_rows == 0) {
     echo 
-    '<div class="alert alert-warning text-center p-5" style="background-color: #fff3cd; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
-        <h4 class="alert-heading">Oops!</h4>
-        <p>Your cart is currently empty. Start shopping and fill it up with your favorites!</p>
-        <a href="home.php" class="btn btn-warning btn-lg">Go Shopping</a>
-    </div>';
+      '<div class="alert alert-warning text-center p-5" style="background-color: #fff3cd; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+          <h4 class="alert-heading">Oops!</h4>
+          <p>Your cart is currently empty. Start shopping and fill it up with your favorites!</p>
+          <a href="home.php" class="btn btn-warning btn-lg">Go Shopping</a>
+      </div>';
     exit;
 }
 ?>
@@ -140,13 +135,13 @@ if ($result->num_rows == 0) {
               </div>
               <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
                 <button class="btn btn-link px-2 decrease-quantity">
-                  <i class="fas fa-minus"></i>
+                <img src="assets/minus.png" alt="Delete" style="height: 10px; width: 10px;">
                 </button>
 
-                <input id="form1" min="0" name="quantity" value="<?php echo $cart_item['quantity']; ?>" type="number" class="form-control form-control-sm" />
+                <input id="form1" min="0" name="quantity" value="<?php echo $cart_item['quantity']; ?>" type="number" class="form-control form-control-sm" style="width: 60px;" />
 
                 <button class="btn btn-link px-2 increase-quantity">
-                  <i class="fas fa-plus"></i>
+                <img src="assets/plus.png" alt="Delete" style="height: 10px; width: 10px;">
                 </button>
               </div>
               <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1 price" data-price="<?php echo $cart_item['price']; ?>">
@@ -200,13 +195,13 @@ if ($result->num_rows == 0) {
         <img src="assets/brand.png" alt="Company Logo" width="30" height="24">
     </a>
     <span class="mb-3 mb-md-0 text-body-secondary" style="white-space: nowrap;">© 2024 Velvet Vogue Clothing Company. All rights reserved.</span>
-</div>
+  </div>
 
     <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
     <li class="ms-3"><a class="text-body-secondary" href="#"><img src="assets/visa.png" alt="visa" width="32" height="32"></a></li>
     <li class="ms-3"><a class="text-body-secondary" href="#"><img src="assets/card.png" alt="mastercard" width="32" height="32"></a></li>
     <li class="ms-3"><a class="text-body-secondary" href="#"><img src="assets/american-express.png" alt="americanexpress" width="32" height="32"></a></li>
-</ul>
+    </ul>
   </footer>
 </div>
 

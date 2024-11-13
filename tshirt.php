@@ -9,7 +9,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
     <link rel="stylesheet" href="css/main.css">
-    <script src="javascript/cart.js"></script>
 
     <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
     </head>
@@ -30,16 +29,21 @@
 
             <div class="text-end">
                 <button type="button" class="btn btn-warning me-2" data-bs-toggle="modal" data-bs-target="#loginModal">
-                REGISTER
+                    REGISTER
                 </button> 
 
-                <a href="profile.php" class="text-warning me-2" style="text-decoration: none; margin-left: 10px;">
-                    <img src="assets/profile.png" alt="Company Logo" style="height: 30px; margin-right: 5px;">
+                <a href="profile.php" class="text-warning me-2" style="text-decoration: none;">
+                    <img src="assets/profile.png" alt="Company Logo" style="height: 30px;">
+                </a>
+
+                <a href="cart.php" class="text-warning" style="text-decoration: none;">
+                    <img src="assets/bag.png" alt="Company Logo" style="height: 30px;">
                 </a>
             </div>
         </div>
     </div>
 </header>
+
 
 <div class="container">
     <header class="d-flex justify-content-center py-3">
