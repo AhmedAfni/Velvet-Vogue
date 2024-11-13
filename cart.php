@@ -105,7 +105,12 @@ $result = $stmt->get_result();
 
 // If the cart is empty
 if ($result->num_rows == 0) {
-    echo 'Your cart is empty.';
+    echo 
+    '<div class="alert alert-warning text-center p-5" style="background-color: #fff3cd; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+        <h4 class="alert-heading">Oops!</h4>
+        <p>Your cart is currently empty. Start shopping and fill it up with your favorites!</p>
+        <a href="home.php" class="btn btn-warning btn-lg">Go Shopping</a>
+    </div>';
     exit;
 }
 ?>
