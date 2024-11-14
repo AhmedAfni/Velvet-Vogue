@@ -39,7 +39,7 @@
                 </a>
 
                 <a href="cart.php" class="text-warning" style="text-decoration: none;">
-                    <img src="assets/bag.png" alt="Company Logo" style="height: 30px;">
+                    <img src="assets/shopping-cart.png" alt="Company Logo" style="height: 30px;">
                 </a>
             </div>
         </div>
@@ -103,87 +103,98 @@
     <!-- Gift Coupon Cards -->
     <div class="col-md-2 mb-4">
       <div class="card shadow-lg rounded-lg" style="width: 100%; overflow: hidden; transition: transform 0.3s ease, box-shadow 0.3s ease;">
-        <div class="card-img-wrapper" style="position: relative; overflow: hidden; border-radius: 10px;">
-          <img src="assets/_coupon.svg" class="card-img-top" alt="coupon" style="max-width: 100%; height: auto; border-radius: 10px;">
-          <div class="badge bg-warning text-dark position-absolute top-0 end-0 m-2" style="border-radius: 8px; font-size: 0.8rem;">Limited Offer</div>
+        <div class="card-img-wrapper position-relative" style="border-radius: 15px;">
+          <img src="assets/_coupon.svg" class="card-img-top" alt="coupon" style="max-width: 100%; height: auto; border-radius: 15px;">
+          <div class="badge bg-success text-white position-absolute top-0 end-0 m-2 badge-custom">Limited Offer</div>
         </div>
-        <div class="card-body" style="background: linear-gradient(135deg, #fdfbfb, #ebedee);">
+        <div class="card-body" style="background: linear-gradient(135deg, #ffffff, #f7f7f7); border-radius: 0 0 15px 15px;">
           <h5 class="card-title text-center" style="font-size: 1.2rem; font-weight: bold; color: #333;">Gift Coupon</h5>
-          <p class="card-text text-center mb-3" style="font-size: 1.1rem; font-weight: 500; color: #555;">LKR. 2000.00</p>
-          <a href="#" class="btn btn-warning w-100" style="border-radius: 25px; font-weight: bold;">Gift Now</a>
+          <p class="card-text text-center mb-3" style="font-size: 1.1rem; color: #555;">LKR. 2000.00</p>
+          <a href="#" class="btn btn-custom w-100" style="background-color: #ffffff; color: #333; border-radius: 25px; font-weight: bold;">Gift Now</a>
         </div>
       </div>
     </div>
 
     <div class="col-md-2 mb-4">
       <div class="card shadow-lg rounded-lg" style="width: 100%; overflow: hidden; transition: transform 0.3s ease, box-shadow 0.3s ease;">
-        <div class="card-img-wrapper" style="position: relative; overflow: hidden; border-radius: 10px;">
-          <img src="assets/_coupon.svg" class="card-img-top" alt="coupon" style="max-width: 100%; height: auto; border-radius: 10px;">
-          <div class="badge bg-success text-white position-absolute top-0 end-0 m-2" style="border-radius: 8px; font-size: 0.8rem;">Best Seller</div>
+        <div class="card-img-wrapper position-relative" style="border-radius: 15px;">
+          <img src="assets/_coupon.svg" class="card-img-top" alt="coupon" style="max-width: 100%; height: auto; border-radius: 15px;">
+          <div class="badge bg-success text-white position-absolute top-0 end-0 m-2 badge-custom">Best Seller</div>
         </div>
-        <div class="card-body" style="background: linear-gradient(135deg, #fdfbfb, #ebedee);">
+        <div class="card-body" style="background: linear-gradient(135deg, #ffffff, #f7f7f7); border-radius: 0 0 15px 15px;">
           <h5 class="card-title text-center" style="font-size: 1.2rem; font-weight: bold; color: #333;">Gift Coupon</h5>
-          <p class="card-text text-center mb-3" style="font-size: 1.1rem; font-weight: 500; color: #555;">LKR. 4000.00</p>
-          <a href="#" class="btn btn-warning w-100" style="border-radius: 25px; font-weight: bold;">Gift Now</a>
+          <p class="card-text text-center mb-3" style="font-size: 1.1rem; color: #555;">LKR. 4000.00</p>
+          <a href="#" class="btn btn-custom w-100" style="background-color: #ffffff; color: #333; border-radius: 25px; font-weight: bold;">Gift Now</a>
         </div>
       </div>
     </div>
 
     <div class="col-md-2 mb-4">
       <div class="card shadow-lg rounded-lg" style="width: 100%; overflow: hidden; transition: transform 0.3s ease, box-shadow 0.3s ease;">
-        <div class="card-img-wrapper" style="position: relative; overflow: hidden; border-radius: 10px;">
-          <img src="assets/_coupon.svg" class="card-img-top" alt="coupon" style="max-width: 100%; height: auto; border-radius: 10px;">
-          <div class="badge bg-info text-white position-absolute top-0 end-0 m-2" style="border-radius: 8px; font-size: 0.8rem;">New Arrival</div>
+        <div class="card-img-wrapper position-relative" style="border-radius: 15px;">
+          <img src="assets/_coupon.svg" class="card-img-top" alt="coupon" style="max-width: 100%; height: auto; border-radius: 15px;">
+          <div class="badge bg-success text-white position-absolute top-0 end-0 m-2 badge-custom">New Arrival</div>
         </div>
-        <div class="card-body" style="background: linear-gradient(135deg, #fdfbfb, #ebedee);">
+        <div class="card-body" style="background: linear-gradient(135deg, #ffffff, #f7f7f7); border-radius: 0 0 15px 15px;">
           <h5 class="card-title text-center" style="font-size: 1.2rem; font-weight: bold; color: #333;">Gift Coupon</h5>
-          <p class="card-text text-center mb-3" style="font-size: 1.1rem; font-weight: 500; color: #555;">LKR. 6000.00</p>
-          <a href="#" class="btn btn-warning w-100" style="border-radius: 25px; font-weight: bold;">Gift Now</a>
+          <p class="card-text text-center mb-3" style="font-size: 1.1rem; color: #555;">LKR. 6000.00</p>
+          <a href="#" class="btn btn-custom w-100" style="background-color: #ffffff; color: #333; border-radius: 25px; font-weight: bold;">Gift Now</a>
         </div>
       </div>
     </div>
 
     <div class="col-md-2 mb-4">
       <div class="card shadow-lg rounded-lg" style="width: 100%; overflow: hidden; transition: transform 0.3s ease, box-shadow 0.3s ease;">
-        <div class="card-img-wrapper" style="position: relative; overflow: hidden; border-radius: 10px;">
-          <img src="assets/_coupon.svg" class="card-img-top" alt="coupon" style="max-width: 100%; height: auto; border-radius: 10px;">
-          <div class="badge bg-danger text-white position-absolute top-0 end-0 m-2" style="border-radius: 8px; font-size: 0.8rem;">Hot Deal</div>
+        <div class="card-img-wrapper position-relative" style="border-radius: 15px;">
+          <img src="assets/_coupon.svg" class="card-img-top" alt="coupon" style="max-width: 100%; height: auto; border-radius: 15px;">
+          <div class="badge bg-success text-white position-absolute top-0 end-0 m-2 badge-custom">Hot Deal</div>
         </div>
-        <div class="card-body" style="background: linear-gradient(135deg, #fdfbfb, #ebedee);">
+        <div class="card-body" style="background: linear-gradient(135deg, #ffffff, #f7f7f7); border-radius: 0 0 15px 15px;">
           <h5 class="card-title text-center" style="font-size: 1.2rem; font-weight: bold; color: #333;">Gift Coupon</h5>
-          <p class="card-text text-center mb-3" style="font-size: 1.1rem; font-weight: 500; color: #555;">LKR. 8000.00</p>
-          <a href="#" class="btn btn-warning w-100" style="border-radius: 25px; font-weight: bold;">Gift Now</a>
+          <p class="card-text text-center mb-3" style="font-size: 1.1rem; color: #555;">LKR. 8000.00</p>
+          <a href="#" class="btn btn-custom w-100" style="background-color: #ffffff; color: #333; border-radius: 25px; font-weight: bold;">Gift Now</a>
         </div>
       </div>
     </div>
 
     <div class="col-md-2 mb-4">
       <div class="card shadow-lg rounded-lg" style="width: 100%; overflow: hidden; transition: transform 0.3s ease, box-shadow 0.3s ease;">
-        <div class="card-img-wrapper" style="position: relative; overflow: hidden; border-radius: 10px;">
-          <img src="assets/_coupon.svg" class="card-img-top" alt="coupon" style="max-width: 100%; height: auto; border-radius: 10px;">
-          <div class="badge bg-primary text-white position-absolute top-0 end-0 m-2" style="border-radius: 8px; font-size: 0.8rem;">Premium</div>
+        <div class="card-img-wrapper position-relative" style="border-radius: 15px;">
+          <img src="assets/_coupon.svg" class="card-img-top" alt="coupon" style="max-width: 100%; height: auto; border-radius: 15px;">
+          <div class="badge bg-success text-white position-absolute top-0 end-0 m-2 badge-custom">Premium</div>
         </div>
-        <div class="card-body" style="background: linear-gradient(135deg, #fdfbfb, #ebedee);">
+        <div class="card-body" style="background: linear-gradient(135deg, #ffffff, #f7f7f7); border-radius: 0 0 15px 15px;">
           <h5 class="card-title text-center" style="font-size: 1.2rem; font-weight: bold; color: #333;">Gift Coupon</h5>
-          <p class="card-text text-center mb-3" style="font-size: 1.1rem; font-weight: 500; color: #555;">LKR. 10000.00</p>
-          <a href="#" class="btn btn-warning w-100" style="border-radius: 25px; font-weight: bold;">Gift Now</a>
+          <p class="card-text text-center mb-3" style="font-size: 1.1rem; color: #555;">LKR. 10000.00</p>
+          <a href="#" class="btn btn-custom w-100" style="background-color: #ffffff; color: #333; border-radius: 25px; font-weight: bold;">Gift Now</a>
         </div>
       </div>
     </div>
   </div>
-
-  <!-- Add hover effect CSS -->
-  <style>
-    .card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-    }
-    .card a:hover {
-      background-color: #f1c40f;
-      color: #333;
-    }
-  </style>
 </div>
+
+<style>
+  .card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+  }
+
+  .btn-custom {
+    transition: background-color 0.3s ease;
+  }
+
+  .btn-custom:hover {
+    background-color: #ffc107; /* Bootstrap warning color */
+    color: white;
+  }
+
+  .badge-custom {
+    font-size: 0.8rem;
+    padding: 5px 10px;
+    border-radius: 8px;
+  }
+</style>
+
 
   <div class="container">
   <footer class="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-5 my-5 border-top">
@@ -224,7 +235,7 @@
       <ul class="nav flex-column">
         <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Journal</a></li>
         <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Our Story</a></li>
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Contact</a></li>
+        <li class="nav-item mb-2"><a href="inquiry_form.php" class="nav-link p-0 text-body-secondary">Contact Us</a></li>
       </ul>
     </div>
   </footer>

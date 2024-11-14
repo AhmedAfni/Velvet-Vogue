@@ -37,8 +37,7 @@
                 </a>
 
                 <a href="cart.php" class="text-warning" style="text-decoration: none;">
-                    <img src="assets/bag.png" alt="Company Logo" style="height: 30px;">
-                </a>
+                <img src="assets/shopping-cart.png" alt="Company Logo" style="height: 30px;">                </a>
             </div>
         </div>
     </div>
