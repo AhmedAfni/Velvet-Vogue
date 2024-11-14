@@ -96,7 +96,9 @@
   </button>
 </div> 
 
-<img src="assets/NameTagWhite.svg" alt="Under Image" style="width: 100%; height: auto; margin-top: 30px;">
+<img src="assets/NameTagWhite.svg" alt="Under Image" style="width: 100%; height: auto; margin-top: 30px;"> 
+
+<img src="assets/combo_offer.svg" alt="Under Image" style="width: 100%; height: auto; margin-top: 30px;">
 
 <div class="container">
   <div class="row mt-4 d-flex justify-content-center">

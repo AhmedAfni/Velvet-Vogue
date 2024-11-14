@@ -17,12 +17,15 @@ if (!isset($_SESSION['user_id'])) {
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     </head>
     <body>
+
     <div class="container text-center mt-5">
-        <div class="alert-box text-danger border-warning">
-            <h2>Not logged in yet? Join now to explore exclusive men's fashion at Velvet Vogue!</h2>
-            <button class="btn btn-warning mt-3" onclick="history.back()">Go Back</button>
-        </div>
+    <div class="alert alert-danger text-center p-5" style="background-color: #f8d7da; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+        <h4 class="alert-heading">Oops!</h4>
+        <p>You must be logged in to explore exclusive men's fashion at Velvet Vogue. Please log in to continue shopping!</p>
+        <a href="home.php" class="btn btn-danger btn-lg">Log In</a>
     </div>
+    </div>
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     </body>
