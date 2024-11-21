@@ -411,6 +411,26 @@ function addToCart(productId) {
         alert("Please select a size.");
     }
 }
+
+document.addEventListener("DOMContentLoaded", function () {
+        const searchInput = document.getElementById("searchInput");
+        const productCards = document.querySelectorAll(".product-card");
+
+        searchInput.addEventListener("input", function () {
+            const searchTerm = searchInput.value.toLowerCase();
+
+            productCards.forEach(card => {
+                const productName = card.querySelector(".card-text").textContent.toLowerCase();
+                const productDescription = card.querySelector(".card-text").textContent.toLowerCase();
+
+                if (productName.includes(searchTerm) || productDescription.includes(searchTerm)) {
+                    card.parentElement.style.display = "block"; // Show parent column
+                } else {
+                    card.parentElement.style.display = "none"; // Hide parent column
+                }
+            });
+        });
+    });
 </script>
 
 </body>

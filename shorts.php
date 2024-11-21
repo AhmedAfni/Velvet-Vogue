@@ -24,7 +24,13 @@
             </ul>
 
             <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
-                <input type="search" class="form-control form-control-dark" placeholder="Search..." aria-label="Search">
+                <input
+                    type="search"
+                    id="searchInput"
+                    class="form-control form-control-dark"
+                    placeholder="Search..."
+                    aria-label="Search"
+                >
             </form>
 
             <div class="text-end">
@@ -416,6 +422,25 @@ function addToCart(productId) {
         alert("Please select a size.");
     }
 }
+document.addEventListener("DOMContentLoaded", function () {
+        const searchInput = document.getElementById("searchInput");
+        const productCards = document.querySelectorAll(".product-card");
+
+        searchInput.addEventListener("input", function () {
+            const searchTerm = searchInput.value.toLowerCase();
+
+            productCards.forEach(card => {
+                const productName = card.querySelector(".card-text").textContent.toLowerCase();
+                const productDescription = card.querySelector(".card-text").textContent.toLowerCase();
+
+                if (productName.includes(searchTerm) || productDescription.includes(searchTerm)) {
+                    card.parentElement.style.display = "block"; // Show parent column
+                } else {
+                    card.parentElement.style.display = "none"; // Hide parent column
+                }
+            });
+        });
+    });
 </script>
 
 </body>

@@ -24,8 +24,15 @@
             </ul>
 
             <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
-                <input type="search" class="form-control form-control-dark" placeholder="Search..." aria-label="Search">
+                <input
+                    type="search"
+                    id="searchInput"
+                    class="form-control form-control-dark"
+                    placeholder="Search..."
+                    aria-label="Search"
+                >
             </form>
+
 
             <div class="text-end">
                 <button type="button" class="btn btn-warning me-2" data-bs-toggle="modal" data-bs-target="#loginModal">
@@ -37,7 +44,8 @@
                 </a>
 
                 <a href="cart.php" class="text-warning" style="text-decoration: none;">
-                <img src="assets/shopping-cart.png" alt="Company Logo" style="height: 30px;">                </a>
+                <img src="assets/shopping-cart.png" alt="Company Logo" style="height: 30px;">                
+                </a>
             </div>
         </div>
     </div>
@@ -133,7 +141,6 @@ if ($result->num_rows > 0) {
                 </div>
               </div>';
     }
-
     echo '</div></div></div>';
 } else {
     echo '<p>No products found.</p>';
@@ -412,6 +419,25 @@ function addToCart(productId) {
         alert("Please select a size.");
     }
 }
+document.addEventListener("DOMContentLoaded", function () {
+        const searchInput = document.getElementById("searchInput");
+        const productCards = document.querySelectorAll(".product-card");
+
+        searchInput.addEventListener("input", function () {
+            const searchTerm = searchInput.value.toLowerCase();
+
+            productCards.forEach(card => {
+                const productName = card.querySelector(".card-text").textContent.toLowerCase();
+                const productDescription = card.querySelector(".card-text").textContent.toLowerCase();
+
+                if (productName.includes(searchTerm) || productDescription.includes(searchTerm)) {
+                    card.parentElement.style.display = "block"; // Show parent column
+                } else {
+                    card.parentElement.style.display = "none"; // Hide parent column
+                }
+            });
+        });
+    });
 </script>
 
 
