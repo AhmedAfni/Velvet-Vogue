@@ -176,11 +176,11 @@ if ($result->num_rows == 0) {
         </div>
 
         <div class="card shadow-sm rounded" style="border: none;">
-            <div class="card-body" style="padding: 20px; background-color: #fdf7e2; border-radius: 10px;">
-                <button type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-warning btn-block btn-lg w-100" style="border-radius: 10px; transition: 0.3s;">
-                    Checkout
-                </button>
-            </div>
+          <div class="card-body" style="padding: 20px; background-color: #fdf7e2; border-radius: 10px;">
+            <a href="payment.php" class="btn btn-warning btn-block btn-lg w-100" style="border-radius: 10px; transition: 0.3s;">
+            Checkout
+            </a>
+          </div>
         </div>
 
       </div>
