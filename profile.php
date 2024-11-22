@@ -3,31 +3,24 @@ session_start();
 include 'config.php';
 // Check if the user is logged in
 if (!isset($_SESSION['user_id'])) {
-    // User is not logged in, display login button only
     ?>
     <!DOCTYPE html>
     <html lang="en">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>User Profile - Login Required</title>
-        <link rel="stylesheet" href="css/profile.css">
-        <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
-
+        <title>Login Required</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="css/profile.css">
     </head>
     <body>
-
-    <div class="container text-center mt-5">
-    <div class="alert alert-danger text-center p-5" style="background-color: #f8d7da; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
-        <h4 class="alert-heading">Oops!</h4>
-        <p>You must be logged in to explore exclusive men's fashion at Velvet Vogue. Please log in to continue shopping!</p>
-        <a href="home.php" class="btn btn-danger btn-lg">Log In</a>
+    <div class="d-flex justify-content-center align-items-center vh-100">
+        <div class="alert alert-danger text-center p-5" style="border-radius: 12px;">
+            <h2 class="alert-heading mb-4">Oops! You’re not logged in.</h2>
+            <p class="mb-4">Log in to explore the exclusive world of men's fashion at Velvet Vogue.</p>
+            <a href="home.php" class="btn btn-danger btn-lg px-5">Log In</a>
+        </div>
     </div>
-    </div>
-
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     </body>
     </html>
     <?php
@@ -52,63 +45,55 @@ $conn->close();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Profile</title>
-    
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="css/profile.css">
-    <script src="javascript/profile.js"></script>
     <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
 </head>
 <body>
 
-<header class="p-3 bg-dark text-white">
-    <div class="container">
-        <div class="d-flex justify-content-between">
-            <a href="home.php" class="nav-link px-2 text-white fs-4">VELVET VOGUE</a>
-            <div>
-                <button type="button" class="btn btn-danger" onclick="signOut()">
-                    Sign Out
-                </button>
-            </div>
-        </div>
+<header class="p-3 bg-dark text-white shadow-sm">
+    <div class="container d-flex justify-content-between align-items-center">
+        <a href="home.php" class="fs-4 fw-bold text-white text-decoration-none">VELVET VOGUE</a>
+        <button class="btn btn-danger" onclick="signOut()">Sign Out</button>
     </div>
 </header>
 
-<div class="container mt-4">
-    <div class="row">
+<div class="container mt-5">
+    <div class="row g-4">
+        <!-- User Profile Card -->
         <div class="col-md-4">
-            <div class="card">
-                <div class="card-body text-center">
-                    <img src="assets/profile.png" alt="Profile Picture" class="rounded-circle" width="150" height="150">
-                    <h5 class="card-title mt-3"><?= htmlspecialchars($user['full_name']) ?></h5>
-                    <p class="card-text">Email: <?= htmlspecialchars($user['email']) ?></p>
+            <div class="card text-center shadow-sm border-0">
+                <div class="card-body">
+                    <img src="assets/profile.png" alt="Profile Picture" class="rounded-circle mb-3" width="150" height="150">
+                    <h4 class="card-title fw-bold mb-1"><?= htmlspecialchars($user['full_name']) ?></h4>
+                    <p class="text-muted"><?= htmlspecialchars($user['email']) ?></p>
                 </div>
             </div>
         </div>
-        
+
+        <!-- User Account Details -->
         <div class="col-md-8">
-            <h3 class="mb-4">Account Information</h3>
-            <div class="card">
-                <div class="card-header bg-warning text-white">
-                    <h5 class="mb-0 bg-warning text-dark">User Details</h5>
+            <div class="card shadow-sm border-0">
+                <div class="card-header bg-warning text-dark fw-bold">
+                    Account Information
                 </div>
                 <div class="card-body">
-                    <table class="table table-borderless">
+                    <table class="table table-borderless align-middle">
                         <tbody>
                             <tr>
-                                <th scope="row">Full Name</th>
+                                <th class="text-muted">Full Name</th>
                                 <td><?= htmlspecialchars($user['full_name']) ?></td>
                             </tr>
                             <tr>
-                                <th scope="row">Email</th>
+                                <th class="text-muted">Email</th>
                                 <td><?= htmlspecialchars($user['email']) ?></td>
                             </tr>
                             <tr>
-                                <th scope="row">Address</th>
+                                <th class="text-muted">Address</th>
                                 <td><?= htmlspecialchars($user['home_address']) ?></td>
                             </tr>
                             <tr>
-                                <th scope="row">Postal Code</th>
+                                <th class="text-muted">Postal Code</th>
                                 <td><?= htmlspecialchars($user['postal_code']) ?></td>
                             </tr>
                         </tbody>
@@ -119,7 +104,7 @@ $conn->close();
     </div>
 </div>
 
-<div class="container">
+<div class="container mt-5">
     <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
         <div class="col-md-4 d-flex align-items-center">
             <a href="/" class="mb-3 me-2 mb-md-0 text-body-secondary text-decoration-none lh-1">
@@ -136,13 +121,10 @@ $conn->close();
     </footer>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script>
     function signOut() {
-    // Redirect to the logout script to end the session
-    window.location.href = "logout.php";
-}
-
+        window.location.href = "logout.php";
+    }
 </script>
 </body>
 </html>
