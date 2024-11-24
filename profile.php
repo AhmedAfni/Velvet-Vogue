@@ -14,6 +14,7 @@ if (!isset($_SESSION['user_id'])) {
         <link rel="stylesheet" href="css/profile.css">
     </head>
     <body>
+
     <div class="d-flex justify-content-center align-items-center vh-100">
         <div class="alert alert-danger text-center p-5" style="border-radius: 12px;">
             <h2 class="alert-heading mb-4">Oops! You’re not logged in.</h2>
@@ -21,6 +22,7 @@ if (!isset($_SESSION['user_id'])) {
             <a href="home.php" class="btn btn-danger btn-lg px-5">Log In</a>
         </div>
     </div>
+    
     </body>
     </html>
     <?php
@@ -53,7 +55,7 @@ $conn->close();
 
 <header class="p-3 bg-dark text-white shadow-sm">
     <div class="container d-flex justify-content-between align-items-center">
-        <a href="home.php" class="fs-4 fw-bold text-white text-decoration-none">VELVET VOGUE</a>
+        <a href="home.php" class="nav-link px-2 text-white fs-4">VELVET VOGUE</a>
         <button class="btn btn-danger" onclick="signOut()">Sign Out</button>
     </div>
 </header>
