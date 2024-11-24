@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Admin Login</title>
+  <title>Admin Signup</title>
 
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
@@ -60,42 +60,51 @@
       background-color: #e0a800;
       transform: scale(1.05);
     }
-    /* Updated Signup Link Color */
-    .signup-link {
-      color: #dc3545; /* Matching the login button color */
+    .login-link {
+      color: #dc3545;
       font-weight: bold;
       text-decoration: none;
       transition: color 0.3s;
     }
-    .signup-link:hover {
-      color: #e0a800; /* Darker shade when hovered */
+    .login-link:hover {
+      color: #b02a37;
     }
   </style>
 </head>
 <body>
 
 <div class="card text-center">
-  <h2 class="card-title mb-3">Admin Login</h2>
-  <p class="card-text">Please enter your credentials</p>
+  <h2 class="card-title mb-3">Admin Signup</h2>
+  <p class="card-text">Create your admin account to get started.</p>
   
   <form>
+    <!-- Name -->
+    <div class="mb-3">
+      <input type="text" class="form-control" id="adminName" placeholder="Enter your full name" required>
+    </div>
+
     <!-- Email -->
     <div class="mb-3">
       <input type="email" class="form-control" id="adminEmail" placeholder="Enter your email" required>
     </div>
-
+    
     <!-- Password -->
     <div class="mb-3">
       <input type="password" class="form-control" id="adminPassword" placeholder="Enter your password" required>
     </div>
+
+    <!-- Confirm Password -->
+    <div class="mb-3">
+      <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm your password" required>
+    </div>
     
-    <!-- Login Button -->
-    <button type="submit" class="btn btn-custom w-100">Login</button>
+    <!-- Signup Button -->
+    <button type="submit" class="btn btn-custom w-100">Sign Up</button>
   </form>
   
   <!-- Links -->
   <div class="mt-4">
-    <p>Don't have an account? <a href="signup.php" class="signup-link">Sign Up</a></p>
+    <p>Already have an account? <a href="index.php" class="login-link">Login</a></p>
   </div>
 </div>
 

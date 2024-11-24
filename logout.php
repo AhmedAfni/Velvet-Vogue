@@ -1,11 +1,9 @@
 <?php
-session_start(); // Start the session to access session data
+session_start();         // Start the session
+session_unset();         // Unset all session variables
+session_destroy();       // Destroy the session
 
-// Destroy the session data
-session_unset();
-session_destroy();
-
-// Redirect to the home page or login page
-header("Location: home.php");
-exit();
+// Redirect to home page with a status message
+header("Location: home.php?status=loggedout");
+exit;
 ?>
