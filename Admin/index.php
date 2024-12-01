@@ -75,8 +75,7 @@
 <body>
 
 <div class="card text-center">
-  <h2 class="card-title mb-3">Admin Login</h2>
-  <p class="card-text">Please enter your credentials</p>
+  <h2 class="card-title mb-3">Admin Login</h2> <br>
   
   <form method="POST" action="login.php">
     <!-- Email -->
@@ -95,10 +94,17 @@
 
   
   <!-- Links -->
-  <div class="mt-4">
-    <p>Don't have an account? <a href="register.php" class="signup-link">Sign Up</a></p>
+<div class="mt-4">
+  <p>Don't have an account? <a href="register.php" class="signup-link">Sign Up</a></p>
   </div>
 </div>
+
+<?php
+// Check if the message is set in the URL
+if (isset($_GET['message'])) {
+    echo "<script>alert('" . $_GET['message'] . "');</script>";
+}
+?>
 
 </body>
 </html>

@@ -103,7 +103,6 @@
 </form>
 
 
-  
   <!-- Links -->
   <div class="mt-4">
     <p>Already have an account? <a href="index.php" class="login-link">Login</a></p>
