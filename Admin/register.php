@@ -105,7 +105,7 @@
 
   <!-- Links -->
   <div class="mt-4">
-    <p>Already have an account? <a href="index.php" class="login-link">Login</a></p>
+    <p>Already have an account? <a href="login.php" class="login-link">Login</a></p>
   </div>
 </div>
 

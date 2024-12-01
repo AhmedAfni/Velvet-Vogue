@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,17 +29,18 @@
             </ul>
 
             <div class="text-end">
-                <button type="button" class="btn btn-warning me-2" data-bs-toggle="modal" data-bs-target="#loginModal">
-                    REGISTER
-                </button> 
-
-                <a href="profile.php" class="text-warning me-2" style="text-decoration: none;">
-                    <img src="assets/profile.png" alt="Company Logo" style="height: 30px;">
-                </a>
-
-                <a href="cart.php" class="text-warning" style="text-decoration: none;">
-                    <img src="assets/shopping-cart.png" alt="Company Logo" style="height: 30px;">
-                </a>
+                <?php if (!isset($_SESSION['user_id'])): ?>
+                    <a href="login_page.php" class="btn btn-outline-warning me-2">LOGIN</a>
+                    <a href="register_page.php" class="btn btn-warning me-2">REGISTER</a>
+                <?php else: ?>
+                    <a href="profile.php" class="text-warning me-2" style="text-decoration: none;">
+                        <img src="assets/profile.png" alt="Profile" style="height: 30px;">
+                    </a>
+                    <a href="cart.php" class="text-warning me-2" style="text-decoration: none;">
+                        <img src="assets/shopping-cart.png" alt="Cart" style="height: 30px;">
+                    </a>
+                    <a href="signout.php" class="btn btn-outline-warning">SIGN OUT</a>
+                <?php endif; ?>
             </div>
         </div>
     </div>
@@ -92,7 +96,7 @@
   </button>
 </div> 
 
-<img src="assets/NameTagWhite.svg" alt="Under Image" style="width: 100%; height: auto; margin-top: 30px;"> 
+<img src="assets/nameTagUPD.svg" alt="Under Image" style="width: 100%; height: auto; margin-top: 30px;"> 
 
 <img src="assets/combo_offer.svg" alt="Under Image" style="width: 100%; height: auto; margin-top: 30px;">
 
@@ -251,7 +255,7 @@
     <a href="/" class="mb-3 me-2 mb-md-0 text-body-secondary text-decoration-none lh-1">
         <img src="assets/brand.png" alt="Company Logo" width="30" height="24">
     </a>
-    <span class="mb-3 mb-md-0 text-body-secondary" style="white-space: nowrap;">© 2024 Velvet Vogue Clothing Company. All rights reserved.</span>
+    <span class="mb-3 mb-md-0 text-body-secondary" style="white-space: nowrap;"> 2024 Velvet Vogue Clothing Company. All rights reserved.</span>
 </div>
 
     <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
@@ -272,7 +276,7 @@
       </div>
       <div class="modal-body">
         <h1>VELVET VOGUE</h1>
-        <form id="loginForm"> <!-- Added id for targeting in JS -->
+        <form id="loginForm"> 
           <div class="mb-3">
             <label for="email" class="form-label">Email</label>
             <input type="email" class="form-control" id="email" required placeholder="Enter your email">
@@ -282,7 +286,7 @@
             <input type="password" class="form-control" id="password" required placeholder="Enter your password">
           </div>
           <button type="submit" class="btn btn-warning w-100">Login</button>
-          <div id="loginError" class="text-danger mt-2" style="display: none;"></div> <!-- Error message display -->
+          <div id="loginError" class="text-danger mt-2" style="display: none;"></div> 
         </form>
 
         <div class="mt-3 text-center">
@@ -308,9 +312,7 @@
     </div>
   </div>
 </div>
-<div id="alertContainer" tabindex="-3"></div> <!-- This will hold the alert message -->
-
-
+<div id="alertContainer" tabindex="-3"></div> 
 
 
 <div class="modal fade" id="signupModal" tabindex="-1" aria-labelledby="signupModalLabel" aria-hidden="true">
@@ -322,7 +324,7 @@
       </div>
       <div class="modal-body">
         <h1>VELVET VOGUE</h1>
-        <form id="signupForm"> <!-- Removed action and method attributes -->
+        <form id="signupForm"> 
           <div class="mb-3">
             <label for="signupFullName" class="form-label">Full name</label>
             <input type="text" class="form-control" id="signupFullName" name="signupFullName" required placeholder="Enter your full name">
@@ -363,7 +365,7 @@
             </button>
           </div>
         </div>
-        <div id="signupAlert" class="mt-3"></div> <!-- For success/error messages -->
+        <div id="signupAlert" class="mt-3"></div> 
       </div>
       <div class="modal-footer d-flex justify-content-center align-items-center" style="background-color: #f8f9fa; padding: 15px;">
         <p class="mb-0 me-3" style="font-size: 1.1rem; font-weight: 500;">Already have an account? 
@@ -375,20 +377,19 @@
 </div>
 
 
-
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
 <script>
 
 document.getElementById('loginForm').addEventListener('submit', function(event) {
-    event.preventDefault(); // Prevent traditional form submission
+    event.preventDefault(); 
 
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
     const alertContainer = document.getElementById('alertContainer');
     
-    alertContainer.innerHTML = ''; // Clear any previous alerts
+    alertContainer.innerHTML = ''; 
 
     fetch('login.php', {
         method: 'POST',
@@ -398,7 +399,6 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
     .then(response => response.json())
     .then(data => {
         if (data.status === 'success') {
-            // Success alert
             alertContainer.innerHTML = `
                 <div class="alert alert-success alert-dismissible fade show" role="alert">
                     ${data.message}
@@ -406,11 +406,9 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
                 </div>
             `;
             setTimeout(() => {
-                // Reload or redirect as needed after showing success message
                 location.reload();
-            }, 2000); // Delay for 2 seconds
+            }, 2000); 
         } else {
-            // Error alert
             alertContainer.innerHTML = `
                 <div class="alert alert-danger alert-dismissible fade show" role="alert">
                     ${data.message}
@@ -421,7 +419,6 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
     })
     .catch(error => {
         console.error('Error:', error);
-        // Display generic error message
         alertContainer.innerHTML = `
             <div class="alert alert-danger alert-dismissible fade show" role="alert">
                 An error occurred. Please try again.
@@ -430,7 +427,6 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
         `;
     });
 });
-
 
 document.getElementById('signupButton').addEventListener('click', function() {
   const formData = new FormData(document.getElementById('signupForm'));
@@ -460,4 +456,3 @@ var carousel = new bootstrap.Carousel(myCarousel, {
 
 </script>
 </html>
-

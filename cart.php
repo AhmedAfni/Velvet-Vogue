@@ -1,3 +1,31 @@
+<?php
+session_start();
+include 'config.php'; // Include the database connection file
+
+// Ensure user is logged in (no guest users allowed)
+$user_id = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : null;
+
+if (!$user_id) {
+    echo '<div class="alert alert-danger text-center p-5" style="background-color: #f8d7da; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+        <h4 class="alert-heading">Oops!</h4>
+        <p>You must be logged in to view your cart. Please log in to continue shopping!</p>
+        <a href="login_page.php" class="btn btn-danger btn-lg">Log In</a>
+    </div>';
+    exit;
+}
+
+// Fetch the cart items from the database for the logged-in user
+$sql = "SELECT cart.cart_id, cart.product_id, cart.size, cart.quantity, products.product_name, products.price, products.image_path
+        FROM cart 
+        JOIN products ON cart.product_id = products.product_id
+        WHERE cart.user_id = ?";
+
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("i", $user_id);
+$stmt->execute();
+$result = $stmt->get_result();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,18 +44,113 @@
             const quantity = parseInt(element.value);
             const totalPriceElement = element.closest('.row').querySelector('.total-price');
             if (totalPriceElement) {
-                totalPriceElement.textContent = 'LKR ' + (price * quantity).toFixed(2);
+                const total = price * quantity;
+                totalPriceElement.textContent = 'LKR ' + total.toLocaleString('en-US', {
+                    minimumFractionDigits: 2,
+                    maximumFractionDigits: 2
+                });
             }
         }
 
-        document.addEventListener('DOMContentLoaded', function() {
-            // Add event listeners to quantity inputs for increase/decrease
-            const quantityInputs = document.querySelectorAll('input[name="quantity"]');
+        // Function to update cart on server
+        async function updateCartQuantity(cartId, quantity, element) {
+            try {
+                const response = await fetch('update_cart.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        cart_id: cartId,
+                        quantity: quantity
+                    })
+                });
+                
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                
+                const data = await response.json();
+                
+                if (data.success) {
+                    // Update UI with confirmed quantity and price
+                    element.value = data.quantity;
+                    const totalPriceElement = element.closest('.row').querySelector('.total-price');
+                    if (totalPriceElement) {
+                        totalPriceElement.textContent = 'LKR ' + data.subtotal.toLocaleString('en-US', {
+                            minimumFractionDigits: 2,
+                            maximumFractionDigits: 2
+                        });
+                    }
+                    // Update totals after price update
+                    calculateAndUpdateTotals();
+                } else {
+                    console.error('Server error:', data.message);
+                    if (data.quantity !== parseInt(element.value)) {
+                        alert('Error updating cart: ' + data.message);
+                        element.value = data.quantity || element.defaultValue;
+                        calculateAndUpdateTotals();
+                    }
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                if (error.message === 'Network response was not ok') {
+                    alert('Network error. Please check your connection.');
+                    location.reload();
+                } else {
+                    console.error('Error updating cart:', error);
+                }
+            }
+        }
 
+        // Function to calculate and update totals
+        function calculateAndUpdateTotals() {
+            let subtotal = 0;
+            const shippingCost = 350.00;
+
+            // Get all price elements
+            document.querySelectorAll('.total-price').forEach(priceElement => {
+                // Remove 'LKR ' and commas, then parse as float
+                const priceText = priceElement.textContent.replace('LKR ', '').replace(/,/g, '');
+                const price = parseFloat(priceText);
+                if (!isNaN(price)) {
+                    subtotal += price;
+                }
+            });
+
+            // Update subtotal display
+            const subtotalElement = document.getElementById('subtotal');
+            subtotalElement.textContent = 'LKR ' + subtotal.toLocaleString('en-US', {
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2
+            });
+
+            // Calculate and update total
+            const total = subtotal + shippingCost;
+            const totalElement = document.getElementById('total');
+            totalElement.textContent = 'LKR ' + total.toLocaleString('en-US', {
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Calculate initial totals
+            calculateAndUpdateTotals();
+
+            // Add event listeners to quantity inputs
+            const quantityInputs = document.querySelectorAll('input[name="quantity"]');
             quantityInputs.forEach(input => {
+                const cartId = input.closest('.row').querySelector('input[name="cart_id"]').value;
+                
                 input.addEventListener('change', function() {
-                    const price = parseFloat(input.closest('.row').querySelector('.price').dataset.price);
-                    updatePrice(input, price);
+                    const quantity = parseInt(this.value);
+                    if (quantity > 0) {
+                        updateCartQuantity(cartId, quantity, this);
+                    } else {
+                        this.value = 1;
+                        updateCartQuantity(cartId, 1, this);
+                    }
                 });
             });
 
@@ -38,10 +161,11 @@
             decreaseButtons.forEach(button => {
                 button.addEventListener('click', function() {
                     const quantityInput = button.closest('.col-md-3').querySelector('input[name="quantity"]');
+                    const cartId = button.closest('.row').querySelector('input[name="cart_id"]').value;
+                    
                     if (quantityInput.value > 1) {
                         quantityInput.value = parseInt(quantityInput.value) - 1;
-                        const price = parseFloat(quantityInput.closest('.row').querySelector('.price').dataset.price);
-                        updatePrice(quantityInput, price);
+                        updateCartQuantity(cartId, quantityInput.value, quantityInput);
                     }
                 });
             });
@@ -49,9 +173,10 @@
             increaseButtons.forEach(button => {
                 button.addEventListener('click', function() {
                     const quantityInput = button.closest('.col-md-3').querySelector('input[name="quantity"]');
+                    const cartId = button.closest('.row').querySelector('input[name="cart_id"]').value;
+                    
                     quantityInput.value = parseInt(quantityInput.value) + 1;
-                    const price = parseFloat(quantityInput.closest('.row').querySelector('.price').dataset.price);
-                    updatePrice(quantityInput, price);
+                    updateCartQuantity(cartId, quantityInput.value, quantityInput);
                 });
             });
         });
@@ -72,32 +197,6 @@
 </header>
 
 <?php
-session_start();
-include 'config.php'; // Include the database connection file
-
-// Ensure user is logged in (no guest users allowed)
-$user_id = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : null;
-
-if (!$user_id) {
-    echo '<div class="alert alert-danger text-center p-5" style="background-color: #f8d7da; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
-        <h4 class="alert-heading">Oops!</h4>
-        <p>You must be logged in to view your cart. Please log in to continue shopping!</p>
-        <a href="home.php" class="btn btn-danger btn-lg">Log In</a>
-    </div>';
-    exit;
-}
-
-// Fetch the cart items from the database for the logged-in user
-$sql = "SELECT cart.cart_id, cart.product_id, cart.size, cart.quantity, products.product_name, products.price, products.image_path
-        FROM cart 
-        JOIN products ON cart.product_id = products.product_id
-        WHERE cart.user_id = ?";
-
-$stmt = $conn->prepare($sql);
-$stmt->bind_param("i", $user_id);
-$stmt->execute();
-$result = $stmt->get_result();
-
 // If the cart is empty
 if ($result->num_rows == 0) {
     echo 
@@ -143,6 +242,7 @@ if ($result->num_rows == 0) {
                 <button class="btn btn-link px-2 increase-quantity">
                 <img src="assets/plus.png" alt="Delete" style="height: 10px; width: 10px;">
                 </button>
+                <input type="hidden" name="cart_id" value="<?php echo $cart_item['cart_id']; ?>">
               </div>
               <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1 price" data-price="<?php echo $cart_item['price']; ?>">
                 <h5 class="mb-0 total-price">LKR <?php echo number_format($cart_item['price'] * $cart_item['quantity'], 2); ?></h5>
@@ -164,13 +264,30 @@ if ($result->num_rows == 0) {
         <?php endwhile; ?>
 
         <div class="card mb-4 shadow-sm rounded" style="border: none;">
-            <div class="card-body p-4 d-flex flex-row align-items-center" style="background-color: #f9f9f9; border-radius: 10px;">
-                <div data-mdb-input-init class="form-outline flex-fill">
-                    <input type="text" id="form1" class="form-control form-control-lg" style="border-radius: 10px; border: 1px solid #ffc107;" placeholder="Enter discount code" />
+            <div class="card-body p-4" style="background-color: #f9f9f9; border-radius: 10px;">
+                <div class="d-flex justify-content-between mb-3">
+                    <h5 class="text-uppercase">Subtotal</h5>
+                    <h5 id="subtotal">LKR 0.00</h5>
                 </div>
 
-                <button type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-outline-warning btn-lg ms-3" style="border-radius: 10px; border-width: 2px; transition: 0.3s;">
-                    Apply
+                <div class="d-flex justify-content-between mb-4">
+                    <h5 class="text-uppercase">Shipping</h5>
+                    <h5>LKR 350.00</h5>
+                </div>
+
+                <hr class="my-4">
+
+                <div class="d-flex justify-content-between mb-4">
+                    <h5 class="text-uppercase fw-bold">Total</h5>
+                    <h5 id="total" class="fw-bold">LKR 0.00</h5>
+                </div>
+
+                <div data-mdb-input-init class="form-outline flex-fill">
+                    <input type="text" id="discountCode" class="form-control form-control-lg" style="border-radius: 10px; border: 1px solid #ffc107;" placeholder="Enter discount code" />
+                </div>
+
+                <button type="button" id="applyDiscount" class="btn btn-outline-warning btn-lg w-100 mt-3" style="border-radius: 10px; border-width: 2px; transition: 0.3s;">
+                    Apply Discount
                 </button>
             </div>
         </div>
@@ -178,7 +295,7 @@ if ($result->num_rows == 0) {
         <div class="card shadow-sm rounded" style="border: none;">
           <div class="card-body" style="padding: 20px; background-color: #fdf7e2; border-radius: 10px;">
             <a href="payment.php" class="btn btn-warning btn-block btn-lg w-100" style="border-radius: 10px; transition: 0.3s;">
-            Checkout
+            Proceed to Checkout
             </a>
           </div>
         </div>
@@ -188,13 +305,29 @@ if ($result->num_rows == 0) {
   </div>
 </section>
 
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Discount code button click handler
+    document.getElementById('applyDiscount').addEventListener('click', function() {
+        const discountCode = document.getElementById('discountCode').value.trim();
+        if (discountCode) {
+            // Here you would typically validate the discount code with the server
+            // For now, we'll just show an alert
+            alert('Discount code functionality coming soon!');
+        } else {
+            alert('Please enter a discount code');
+        }
+    });
+});
+</script>
+
 <div class="container">
   <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
   <div class="col-md-4 d-flex align-items-center">
     <a href="/" class="mb-3 me-2 mb-md-0 text-body-secondary text-decoration-none lh-1">
         <img src="assets/brand.png" alt="Company Logo" width="30" height="24">
     </a>
-    <span class="mb-3 mb-md-0 text-body-secondary" style="white-space: nowrap;">© 2024 Velvet Vogue Clothing Company. All rights reserved.</span>
+    <span class="mb-3 mb-md-0 text-body-secondary" style="white-space: nowrap;"> 2024 Velvet Vogue Clothing Company. All rights reserved.</span>
   </div>
 
     <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">

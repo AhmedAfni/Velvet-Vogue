@@ -26,25 +26,51 @@ if ($user_id) {
             $update_sql = "UPDATE cart SET quantity = ? WHERE cart_id = ?";
             $update_stmt = $conn->prepare($update_sql);
             $update_stmt->bind_param("ii", $new_quantity, $row['cart_id']);
-            $update_stmt->execute();
-
-            echo 'Product quantity updated in cart!';
+            
+            if ($update_stmt->execute()) {
+                echo json_encode([
+                    'status' => 'success',
+                    'message' => 'Product quantity updated in cart!'
+                ]);
+            } else {
+                echo json_encode([
+                    'status' => 'error',
+                    'message' => 'Failed to update cart.'
+                ]);
+            }
         } else {
             // Product is not in the cart, insert a new record
-            $quantity = 1; // Set quantity to 1 for new cart item
+            $quantity = 1;
 
             $insert_sql = "INSERT INTO cart (user_id, product_id, size, quantity) VALUES (?, ?, ?, ?)";
             $insert_stmt = $conn->prepare($insert_sql);
-            $insert_stmt->bind_param("iisi", $user_id, $product_id, $size, $quantity); // Pass $quantity as a variable
-            $insert_stmt->execute();
-
-            echo 'Product added to cart!';
+            $insert_stmt->bind_param("iisi", $user_id, $product_id, $size, $quantity);
+            
+            if ($insert_stmt->execute()) {
+                echo json_encode([
+                    'status' => 'success',
+                    'message' => 'Product added to cart!'
+                ]);
+            } else {
+                echo json_encode([
+                    'status' => 'error',
+                    'message' => 'Failed to add product to cart.'
+                ]);
+            }
         }
     } else {
-        echo 'Error: Product or size not specified.';
+        echo json_encode([
+            'status' => 'error',
+            'message' => 'Error: Product or size not specified.'
+        ]);
     }
 } else {
-    echo 'Error: User not logged in.';
+    echo json_encode([
+        'status' => 'error',
+        'message' => 'Please log in to add items to your cart',
+        'requireLogin' => true,
+        'loginUrl' => 'login_page.php'
+    ]);
 }
 
 // Close the database connection
