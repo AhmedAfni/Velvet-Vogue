@@ -76,10 +76,6 @@ $recent_cart = $conn->query($sql);
     <div class="container mt-4">
         <div class="d-flex justify-content-between align-items-center mb-4">
             <h2>Welcome, <?php echo $_SESSION['admin_name']; ?>!</h2>
-            <div class="text-muted">
-                <i class="bi bi-clock"></i> 
-                <?php echo date('l, F j, Y'); ?>
-            </div>
         </div>
 
         <!-- Statistics Cards -->
