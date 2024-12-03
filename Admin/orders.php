@@ -13,6 +13,26 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
     $stmt->execute();
 }
 
+// Handle order deletion
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['action'] === 'delete_order') {
+    $order_id = $_POST['order_id'];
+    
+    // Delete order items first
+    $sql = "DELETE FROM order_items WHERE order_id = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("i", $order_id);
+    $stmt->execute();
+    
+    // Then delete the order
+    $sql = "DELETE FROM orders WHERE order_id = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("i", $order_id);
+    $stmt->execute();
+    
+    header("Location: orders.php");
+    exit();
+}
+
 // Fetch all orders with customer details
 $sql = "SELECT o.*, u.email as customer_email, u.full_name as customer_name 
         FROM orders o 
@@ -58,7 +78,6 @@ $result = $conn->query($sql);
                         <th>Total Amount</th>
                         <th>Status</th>
                         <th>Payment Status</th>
-                        <th>Order Date</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -98,43 +117,24 @@ $result = $conn->query($sql);
                                 <?php echo ucfirst($row['payment_status']); ?>
                             </span>
                         </td>
-                        <td><?php echo date('M d, Y H:i', strtotime($row['created_at'])); ?></td>
                         <td>
-                            <button class="btn btn-sm btn-primary view-order-btn" 
-                                    data-id="<?php echo $row['order_id']; ?>"
-                                    data-bs-toggle="modal" 
-                                    data-bs-target="#orderDetailsModal">
-                                <i class="bi bi-eye"></i>
-                            </button>
-                            <button class="btn btn-sm btn-warning update-status-btn"
-                                    data-id="<?php echo $row['order_id']; ?>"
-                                    data-status="<?php echo $row['status']; ?>"
-                                    data-bs-toggle="modal" 
-                                    data-bs-target="#updateStatusModal">
-                                <i class="bi bi-pencil"></i>
-                            </button>
+                            <div class="btn-group">
+                                <button class="btn btn-sm btn-warning update-status-btn"
+                                        data-id="<?php echo $row['order_id']; ?>"
+                                        data-status="<?php echo $row['status']; ?>"
+                                        data-bs-toggle="modal" 
+                                        data-bs-target="#updateStatusModal">
+                                    <i class="bi bi-pencil"></i>
+                                </button>
+                                <button type="button" class="btn btn-sm btn-outline-danger" onclick="deleteOrder(<?php echo $row['order_id']; ?>)" title="Delete Order">
+                                    <i class="bi bi-trash"></i>
+                                </button>
+                            </div>
                         </td>
                     </tr>
                     <?php endwhile; ?>
                 </tbody>
             </table>
-        </div>
-    </div>
-
-    <!-- Order Details Modal -->
-    <div class="modal fade" id="orderDetailsModal" tabindex="-1">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Order Details</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                </div>
-                <div class="modal-body">
-                    <div id="orderDetails">
-                        Loading...
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
 
@@ -170,33 +170,33 @@ $result = $conn->query($sql);
         </div>
     </div>
 
+    <!-- Delete Order Form -->
+    <form id="deleteOrderForm" method="POST" style="display: none;">
+        <input type="hidden" name="action" value="delete_order">
+        <input type="hidden" name="order_id" id="deleteOrderId">
+    </form>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        // View order details
-        document.querySelectorAll('.view-order-btn').forEach(button => {
-            button.addEventListener('click', () => {
+        document.addEventListener('DOMContentLoaded', function() {
+            // Update status functionality
+            const updateStatusModal = document.getElementById('updateStatusModal');
+            updateStatusModal.addEventListener('show.bs.modal', function(event) {
+                const button = event.relatedTarget;
                 const orderId = button.dataset.id;
-                const detailsDiv = document.getElementById('orderDetails');
+                const currentStatus = button.dataset.status;
                 
-                // Fetch order details using AJAX
-                fetch(`get_order_details.php?id=${orderId}`)
-                    .then(response => response.text())
-                    .then(html => {
-                        detailsDiv.innerHTML = html;
-                    })
-                    .catch(error => {
-                        detailsDiv.innerHTML = 'Error loading order details.';
-                    });
+                document.getElementById('update-order-id').value = orderId;
+                document.getElementById('update-status').value = currentStatus;
             });
         });
 
-        // Update status
-        document.querySelectorAll('.update-status-btn').forEach(button => {
-            button.addEventListener('click', () => {
-                document.getElementById('update-order-id').value = button.dataset.id;
-                document.getElementById('update-status').value = button.dataset.status;
-            });
-        });
+        function deleteOrder(orderId) {
+            if (confirm('Are you sure you want to delete this order? This action cannot be undone.')) {
+                document.getElementById('deleteOrderId').value = orderId;
+                document.getElementById('deleteOrderForm').submit();
+            }
+        }
     </script>
 </body>
 </html>

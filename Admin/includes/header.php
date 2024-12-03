@@ -61,7 +61,6 @@ if (!isset($_SESSION['admin_id']) && basename($_SERVER['PHP_SELF']) !== 'login.p
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
         <a class="navbar-brand" href="index.php">
-            <img src="../assets/brand.png" alt="Velvet Vogue" height="30" class="d-inline-block align-text-top me-2">
             Velvet Vogue Admin
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -97,12 +96,6 @@ if (!isset($_SESSION['admin_id']) && basename($_SERVER['PHP_SELF']) !== 'login.p
                             <?php echo htmlspecialchars($_SESSION['admin_name']); ?>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="adminDropdown">
-                            <li>
-                                <a class="dropdown-item" href="admin.php">
-                                    <i class="bi bi-gear"></i> Profile Settings
-                                </a>
-                            </li>
-                            <li><hr class="dropdown-divider"></li>
                             <li>
                                 <a class="dropdown-item text-danger" href="signout.php">
                                     <i class="bi bi-box-arrow-right"></i> Sign Out
