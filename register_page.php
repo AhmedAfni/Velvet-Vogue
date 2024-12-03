@@ -12,6 +12,8 @@ if (isset($_SESSION['user_id'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register - Velvet Vogue</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <style>
         body {
             background-color: #f8f9fa;
@@ -44,10 +46,6 @@ if (isset($_SESSION['user_id'])) {
             text-align: center;
             margin-top: 20px;
         }
-        .alert {
-            display: none;
-            margin-top: 20px;
-        }
     </style>
 </head>
 <body>
@@ -67,7 +65,7 @@ if (isset($_SESSION['user_id'])) {
                 </div>
                 <div class="mb-3">
                     <label for="homeAddress" class="form-label">Home Address</label>
-                    <textarea class="form-control" id="homeAddress" name="homeAddress" rows="2" required></textarea>
+                    <input type="text" class="form-control" id="homeAddress" name="homeAddress" required>
                 </div>
                 <div class="mb-3">
                     <label for="postalCode" class="form-label">Postal Code</label>
@@ -75,15 +73,14 @@ if (isset($_SESSION['user_id'])) {
                 </div>
                 <div class="mb-3">
                     <label for="password" class="form-label">Password</label>
-                    <input type="password" class="form-control" id="password" name="password" required>
-                </div>
-                <div class="mb-3">
-                    <label for="confirmPassword" class="form-label">Confirm Password</label>
-                    <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" required>
+                    <div class="input-group">
+                        <input type="password" class="form-control" id="password" name="password" required>
+                        <button class="btn btn-outline-secondary" type="button" id="togglePassword">
+                            <i class="bi bi-eye"></i>
+                        </button>
+                    </div>
                 </div>
                 <button type="submit" class="btn btn-warning">Register</button>
-                <div class="alert alert-danger mt-3" id="errorAlert" role="alert"></div>
-                <div class="alert alert-success mt-3" id="successAlert" role="alert"></div>
             </form>
             <div class="login-link">
                 Already have an account? <a href="login_page.php" class="text-warning">Login here</a>
@@ -95,19 +92,31 @@ if (isset($_SESSION['user_id'])) {
     </div>
 
     <script>
+        // Toggle password visibility
+        document.getElementById('togglePassword').addEventListener('click', function() {
+            const passwordInput = document.getElementById('password');
+            const icon = this.querySelector('i');
+            
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                icon.classList.remove('bi-eye');
+                icon.classList.add('bi-eye-slash');
+            } else {
+                passwordInput.type = 'password';
+                icon.classList.remove('bi-eye-slash');
+                icon.classList.add('bi-eye');
+            }
+        });
+
+        // Handle form submission
         document.getElementById('registerForm').addEventListener('submit', function(event) {
             event.preventDefault();
             
-            const errorAlert = document.getElementById('errorAlert');
-            const successAlert = document.getElementById('successAlert');
+            const submitButton = this.querySelector('button[type="submit"]');
             
-            // Check if passwords match
-            if (document.getElementById('password').value !== document.getElementById('confirmPassword').value) {
-                errorAlert.style.display = 'block';
-                successAlert.style.display = 'none';
-                errorAlert.textContent = 'Passwords do not match';
-                return;
-            }
+            // Disable submit button and show loading state
+            submitButton.disabled = true;
+            submitButton.innerHTML = '<span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>Creating account...';
             
             fetch('register.php', {
                 method: 'POST',
@@ -125,22 +134,41 @@ if (isset($_SESSION['user_id'])) {
             .then(response => response.json())
             .then(data => {
                 if (data.status === 'success') {
-                    successAlert.style.display = 'block';
-                    errorAlert.style.display = 'none';
-                    successAlert.textContent = data.message;
-                    setTimeout(() => {
-                        window.location.href = 'login_page.php';
-                    }, 2000);
+                    // Show success message with SweetAlert2
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Welcome to Velvet Vogue!',
+                        text: 'Your account has been created successfully. Redirecting to login...',
+                        timer: 2000,
+                        timerProgressBar: true,
+                        showConfirmButton: false,
+                        willClose: () => {
+                            window.location.href = 'login_page.php';
+                        }
+                    });
                 } else {
-                    errorAlert.style.display = 'block';
-                    successAlert.style.display = 'none';
-                    errorAlert.textContent = data.message;
+                    // Show error message
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Registration Failed',
+                        text: data.message,
+                        confirmButtonColor: '#ffc107'
+                    });
+                    // Reset button state
+                    submitButton.disabled = false;
+                    submitButton.innerHTML = 'Register';
                 }
             })
             .catch(error => {
-                errorAlert.style.display = 'block';
-                successAlert.style.display = 'none';
-                errorAlert.textContent = 'An error occurred. Please try again.';
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Connection Error',
+                    text: 'Failed to connect to the server. Please check your internet connection.',
+                    confirmButtonColor: '#ffc107'
+                });
+                // Reset button state
+                submitButton.disabled = false;
+                submitButton.innerHTML = 'Register';
             });
         });
     </script>

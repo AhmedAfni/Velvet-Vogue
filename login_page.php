@@ -12,6 +12,8 @@ if (isset($_SESSION['user_id'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - Velvet Vogue</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <style>
         body {
             background-color: #f8f9fa;
@@ -63,7 +65,12 @@ if (isset($_SESSION['user_id'])) {
                 </div>
                 <div class="mb-3">
                     <label for="password" class="form-label">Password</label>
-                    <input type="password" class="form-control" id="password" name="password" required>
+                    <div class="input-group">
+                        <input type="password" class="form-control" id="password" name="password" required>
+                        <button class="btn btn-outline-secondary" type="button" id="togglePassword">
+                            <i class="bi bi-eye"></i>
+                        </button>
+                    </div>
                 </div>
                 <button type="submit" class="btn btn-warning">Login</button>
                 <div class="alert alert-danger mt-3" id="errorAlert" role="alert"></div>
@@ -79,11 +86,30 @@ if (isset($_SESSION['user_id'])) {
     </div>
 
     <script>
+        // Toggle password visibility
+        document.getElementById('togglePassword').addEventListener('click', function() {
+            const passwordInput = document.getElementById('password');
+            const icon = this.querySelector('i');
+            
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                icon.classList.remove('bi-eye');
+                icon.classList.add('bi-eye-slash');
+            } else {
+                passwordInput.type = 'password';
+                icon.classList.remove('bi-eye-slash');
+                icon.classList.add('bi-eye');
+            }
+        });
+
         document.getElementById('loginForm').addEventListener('submit', function(event) {
             event.preventDefault();
             
-            const errorAlert = document.getElementById('errorAlert');
-            const successAlert = document.getElementById('successAlert');
+            const submitButton = this.querySelector('button[type="submit"]');
+            
+            // Disable submit button and show loading state
+            submitButton.disabled = true;
+            submitButton.innerHTML = '<span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>Logging in...';
             
             fetch('login.php', {
                 method: 'POST',
@@ -98,20 +124,41 @@ if (isset($_SESSION['user_id'])) {
             .then(response => response.json())
             .then(data => {
                 if (data.status === 'success') {
-                    successAlert.style.display = 'block';
-                    errorAlert.style.display = 'none';
-                    successAlert.textContent = data.message;
-                    window.location.href = 'home.php';
+                    // Show success message with SweetAlert2
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Welcome Back!',
+                        text: 'Login successful. Redirecting to home...',
+                        timer: 2000,
+                        timerProgressBar: true,
+                        showConfirmButton: false,
+                        willClose: () => {
+                            window.location.href = 'home.php';
+                        }
+                    });
                 } else {
-                    errorAlert.style.display = 'block';
-                    successAlert.style.display = 'none';
-                    errorAlert.textContent = data.message;
+                    // Show error message
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Login Failed',
+                        text: data.message || 'Invalid email or password',
+                        confirmButtonColor: '#ffc107'
+                    });
+                    // Reset button state
+                    submitButton.disabled = false;
+                    submitButton.innerHTML = 'Login';
                 }
             })
             .catch(error => {
-                errorAlert.style.display = 'block';
-                successAlert.style.display = 'none';
-                errorAlert.textContent = 'An error occurred. Please try again.';
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Connection Error',
+                    text: 'Failed to connect to the server. Please check your internet connection.',
+                    confirmButtonColor: '#ffc107'
+                });
+                // Reset button state
+                submitButton.disabled = false;
+                submitButton.innerHTML = 'Login';
             });
         });
     </script>

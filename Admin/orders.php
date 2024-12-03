@@ -49,6 +49,8 @@ $result = $conn->query($sql);
     <title>Order Management - Admin Panel</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32x32.png">
+
     <style>
         .status-badge {
             font-size: 0.9em;

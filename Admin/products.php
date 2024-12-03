@@ -64,6 +64,8 @@ $result = $conn->query($sql);
     <title>Product Management - Admin Panel</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32x32.png">
+
 </head>
 <body>
     <?php include 'includes/header.php'; ?>
@@ -97,7 +99,7 @@ $result = $conn->query($sql);
                                  style="width: 50px; height: 50px; object-fit: cover;">
                         </td>
                         <td><?php echo $row['product_name']; ?></td>
-                        <td>$<?php echo number_format($row['price'], 2); ?></td>
+                        <td>LKR <?php echo number_format($row['price'], 2); ?></td>
                         <td><?php echo ucfirst($row['product_type']); ?></td>
                         <td>
                             <button class="btn btn-sm btn-warning edit-btn" 
