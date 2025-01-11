@@ -12,8 +12,6 @@ session_start();
    
     <link rel="stylesheet" href="css/home.css">
 
-    <script src="javascript/home.js"></script>
-
     <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
     
 </head>
@@ -102,12 +100,12 @@ session_start();
 
 <div class="container">
   <div class="row mt-4 justify-content-center gx-4 gy-3">
+    
     <!-- Gift Coupon Cards -->
     <div class="col-auto">
       <div class="card shadow-lg rounded-lg" style="width: 180px; overflow: hidden; transition: transform 0.3s ease, box-shadow 0.3s ease;">
         <div class="card-img-wrapper position-relative" style="border-radius: 15px;">
           <img src="assets/_coupon.svg" class="card-img-top" alt="coupon" style="max-width: 100%; height: auto; border-radius: 15px;">
-          <div class="badge bg-success text-white position-absolute top-0 end-0 m-2 badge-custom">Limited Offer</div>
         </div>
         <div class="card-body" style="background: linear-gradient(135deg, #ffffff, #f7f7f7); border-radius: 0 0 15px 15px;">
           <h5 class="card-title text-center" style="font-size: 1.2rem; font-weight: bold; color: #333;">Gift Coupon</h5>
@@ -121,7 +119,6 @@ session_start();
       <div class="card shadow-lg rounded-lg" style="width: 180px; overflow: hidden; transition: transform 0.3s ease, box-shadow 0.3s ease;">
         <div class="card-img-wrapper position-relative" style="border-radius: 15px;">
           <img src="assets/_coupon.svg" class="card-img-top" alt="coupon" style="max-width: 100%; height: auto; border-radius: 15px;">
-          <div class="badge bg-success text-white position-absolute top-0 end-0 m-2 badge-custom">Best Seller</div>
         </div>
         <div class="card-body" style="background: linear-gradient(135deg, #ffffff, #f7f7f7); border-radius: 0 0 15px 15px;">
           <h5 class="card-title text-center" style="font-size: 1.2rem; font-weight: bold; color: #333;">Gift Coupon</h5>
@@ -135,7 +132,6 @@ session_start();
       <div class="card shadow-lg rounded-lg" style="width: 180px; overflow: hidden; transition: transform 0.3s ease, box-shadow 0.3s ease;">
         <div class="card-img-wrapper position-relative" style="border-radius: 15px;">
           <img src="assets/_coupon.svg" class="card-img-top" alt="coupon" style="max-width: 100%; height: auto; border-radius: 15px;">
-          <div class="badge bg-success text-white position-absolute top-0 end-0 m-2 badge-custom">New Arrival</div>
         </div>
         <div class="card-body" style="background: linear-gradient(135deg, #ffffff, #f7f7f7); border-radius: 0 0 15px 15px;">
           <h5 class="card-title text-center" style="font-size: 1.2rem; font-weight: bold; color: #333;">Gift Coupon</h5>
@@ -149,7 +145,6 @@ session_start();
       <div class="card shadow-lg rounded-lg" style="width: 180px; overflow: hidden; transition: transform 0.3s ease, box-shadow 0.3s ease;">
         <div class="card-img-wrapper position-relative" style="border-radius: 15px;">
           <img src="assets/_coupon.svg" class="card-img-top" alt="coupon" style="max-width: 100%; height: auto; border-radius: 15px;">
-          <div class="badge bg-success text-white position-absolute top-0 end-0 m-2 badge-custom">Hot Deal</div>
         </div>
         <div class="card-body" style="background: linear-gradient(135deg, #ffffff, #f7f7f7); border-radius: 0 0 15px 15px;">
           <h5 class="card-title text-center" style="font-size: 1.2rem; font-weight: bold; color: #333;">Gift Coupon</h5>
@@ -163,7 +158,6 @@ session_start();
       <div class="card shadow-lg rounded-lg" style="width: 180px; overflow: hidden; transition: transform 0.3s ease, box-shadow 0.3s ease;">
         <div class="card-img-wrapper position-relative" style="border-radius: 15px;">
           <img src="assets/_coupon.svg" class="card-img-top" alt="coupon" style="max-width: 100%; height: auto; border-radius: 15px;">
-          <div class="badge bg-success text-white position-absolute top-0 end-0 m-2 badge-custom">Premium</div>
         </div>
         <div class="card-body" style="background: linear-gradient(135deg, #ffffff, #f7f7f7); border-radius: 0 0 15px 15px;">
           <h5 class="card-title text-center" style="font-size: 1.2rem; font-weight: bold; color: #333;">Gift Coupon</h5>
