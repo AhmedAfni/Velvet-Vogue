@@ -25,7 +25,7 @@
 
 <div class="d-flex justify-content-center align-items-center vh-100">
     <div class="card shadow-lg p-4" style="width: 100%; max-width: 500px;">
-        <h2 class="text-center text-primary mb-4">Contact Us</h2>
+        <h2 class="text-center text-primary mb-4">Inquiry Form</h2>
         <form action="submit_inquiry.php" method="POST">
             <div class="mb-3">
                 <label for="name" class="form-label"><i class="fas fa-user me-2"></i>Name:</label>

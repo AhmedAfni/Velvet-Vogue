@@ -123,6 +123,21 @@ $recent_users = $conn->query($sql);
                     </div>
                 </div>
             </div>
+            <div class="col-md-6">
+                <div class="card stats-card bg-warning h-100">
+                    <div class="card-body py-2">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <h6 class="card-subtitle mb-1 text-dark">Total Inquiries</h6>
+                                <h2 class="card-title text-dark">15</h2>
+                            </div>
+                            <div class="stats-icon text-dark">
+                                <i class="bi bi-chat-dots"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <div class="row g-4">
@@ -181,6 +196,63 @@ $recent_users = $conn->query($sql);
                                         <td><?php echo $user['email']; ?></td>
                                     </tr>
                                     <?php endwhile; ?>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <h5 class="mb-0">Recent Inquiries</h5>
+                        <a href="#" class="btn btn-sm btn-primary">View All</a>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Subject</th>
+                                        <th>Status</th>
+                                        <th>Date</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>John Doe</td>
+                                        <td>Product Availability</td>
+                                        <td><span class="badge bg-warning">Pending</span></td>
+                                        <td>Feb 28, 2025</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Jane Smith</td>
+                                        <td>Shipping Question</td>
+                                        <td><span class="badge bg-success">Resolved</span></td>
+                                        <td>Feb 27, 2025</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Mike Johnson</td>
+                                        <td>Size Guide</td>
+                                        <td><span class="badge bg-warning">Pending</span></td>
+                                        <td>Feb 27, 2025</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Sarah Williams</td>
+                                        <td>Return Policy</td>
+                                        <td><span class="badge bg-success">Resolved</span></td>
+                                        <td>Feb 26, 2025</td>
+                                    </tr>
+                                    <tr>
+                                        <td>David Brown</td>
+                                        <td>Payment Issue</td>
+                                        <td><span class="badge bg-warning">Pending</span></td>
+                                        <td>Feb 26, 2025</td>
+                                    </tr>
                                 </tbody>
                             </table>
                         </div>

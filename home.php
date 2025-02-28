@@ -207,7 +207,6 @@ session_start();
     </div>
 
     <div class="col mb-3">
-
     </div>
 
     <div class="col mb-3">
@@ -235,9 +234,9 @@ session_start();
     <div class="col mb-3">
       <h5>ABOUT</h5>
       <ul class="nav flex-column">
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Journal</a></li>
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Our Story</a></li>
-        <li class="nav-item mb-2"><a href="inquiry_form.php" class="nav-link p-0 text-body-secondary">Contact Us</a></li>
+        <li class="nav-item mb-2"><a href="contactUs.php" class="nav-link p-0 text-body-secondary">Contact Us</a></li>
+        <li class="nav-item mb-2"><a href="aboutUs.php" class="nav-link p-0 text-body-secondary">Our Story</a></li>
+        <li class="nav-item mb-2"><a href="inquiry_form.php" class="nav-link p-0 text-body-secondary">Inquiry</a></li>
       </ul>
     </div>
   </footer>

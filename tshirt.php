@@ -24,6 +24,77 @@ $result = $conn->query($sql);
 if ($result->num_rows > 0) {
     echo '<div class="album py-5 bg-light">
             <div class="container">
+                <!-- Filter Button and Options -->
+                <div class="row mb-4">
+                    <div class="col-12">
+                        <div class="d-flex justify-content-end">
+                            <button class="btn btn-warning shadow-sm" type="button" data-bs-toggle="collapse" data-bs-target="#filterOptions" aria-expanded="false" aria-controls="filterOptions">
+                                <i class="bi bi-funnel"></i> Filter Products
+                            </button>
+                        </div>
+                        
+                        <!-- Collapsible Filter Options -->
+                        <div class="collapse mt-3" id="filterOptions">
+                            <div class="card card-body border-0 shadow-sm">
+                                <form id="filterForm" class="row g-3">
+                                    <div class="col-md-3">
+                                        <label class="form-label fw-semibold">Size</label>
+                                        <div class="btn-group d-flex" role="group">
+                                            <input type="radio" class="btn-check" name="size" id="size-all" value="" checked>
+                                            <label class="btn btn-outline-secondary" for="size-all">All</label>
+                                            
+                                            <input type="radio" class="btn-check" name="size" id="size-s" value="S">
+                                            <label class="btn btn-outline-secondary" for="size-s">S</label>
+                                            
+                                            <input type="radio" class="btn-check" name="size" id="size-m" value="M">
+                                            <label class="btn btn-outline-secondary" for="size-m">M</label>
+                                            
+                                            <input type="radio" class="btn-check" name="size" id="size-l" value="L">
+                                            <label class="btn btn-outline-secondary" for="size-l">L</label>
+                                            
+                                            <input type="radio" class="btn-check" name="size" id="size-xl" value="XL">
+                                            <label class="btn btn-outline-secondary" for="size-xl">XL</label>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="col-md-4">
+                                        <label class="form-label fw-semibold">Price Range</label>
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="input-group">
+                                                    <span class="input-group-text">LKR</span>
+                                                    <input type="number" class="form-control" name="min_price" placeholder="Min">
+                                                </div>
+                                            </div>
+                                            <div class="col">
+                                                <div class="input-group">
+                                                    <span class="input-group-text">LKR</span>
+                                                    <input type="number" class="form-control" name="max_price" placeholder="Max">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="col-md-3">
+                                        <label class="form-label fw-semibold">Sort By</label>
+                                        <select class="form-select" name="sort">
+                                            <option value="">Default</option>
+                                            <option value="price_asc">Price: Low to High</option>
+                                            <option value="price_desc">Price: High to Low</option>
+                                        </select>
+                                    </div>
+                                    
+                                    <div class="col-md-2 d-flex align-items-end">
+                                        <button type="submit" class="btn btn-warning w-100">
+                                            Apply Filters
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
                 <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">';
 
     // Loop through each product and display it
@@ -95,48 +166,6 @@ if ($result->num_rows > 0) {
 // Close the database connection
 $conn->close();
 ?>
-
-<div class="container">
-    <footer class="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-5 my-5 border-top">
-        <div class="col mb-3">
-            <p class="text-body-secondary fw-bold fs-4" style="white-space: nowrap;">Velvet Vogue Clothing Company</p>
-            <p class="text-body-secondary">Elevate your style with Velvet Vogue—where versatile men's fashion meets effortless confidence. Dress sharp, play hard!</p>
-        </div>
-
-        <div class="col mb-3"></div>
-
-        <div class="col mb-3">
-            <h5>SHOP</h5>
-            <ul class="nav flex-column">
-                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">T-Shirts</a></li>
-                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Pants</a></li>
-                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Shorts</a></li>
-                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Hoodies</a></li>
-            </ul>
-        </div>
-
-        <div class="col mb-3">
-            <h5>HELP</h5>
-            <ul class="nav flex-column">
-                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Get Help</a></li>
-                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Terms & Conditions</a></li>
-                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Privacy Policy</a></li>
-                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Return & Exchange</a></li>
-                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Delivery Policy</a></li>
-                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Order Tracking</a></li>
-            </ul>
-        </div>
-
-        <div class="col mb-3">
-            <h5>ABOUT</h5>
-            <ul class="nav flex-column">
-                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Journal</a></li>
-                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Our Story</a></li>
-                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Contact</a></li>
-            </ul>
-        </div>
-    </footer>
-</div>
 
 <div class="container">
     <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
